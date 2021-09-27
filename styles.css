@@ -86,23 +86,31 @@ img{
     height: auto;
 }
 
-.menu, .menu_nav{
+.menu {
     display: flex;
     width: 100%;
-    height: 18rem;
+    /* height: 18rem; */
     background-color: khaki;
 }
-.menu_nav{
+.menu_nav {
     display: flex;
     width: 100%;
-    height: 20rem;
+    /* height: 20rem; */
     background-color: lawngreen;
 }
+
+.menu_nav nav {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
 .menu_itens{
     display: flex;
-    width: 70%;
+    width: 100%;
     height: 2rem;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     row-gap: 5rem;
     background-color: black;
@@ -112,9 +120,19 @@ img{
 }
 .menu_logo{
     display: flex;
-    width: 30%;
+    width: 50%;
+    justify-content: center;
     align-items: center;
-    color: white;
     font-size: var(--h1-font-size);
-    margin-left: var(--mb-0-75);
+    background-color: black;
+    /* margin-left: var(--mb-0-75); */
+    
+}
+
+.menu_logo h1 {
+    color: white;
+}
+
+.menu_search {
+    /* width: ; */
 }
