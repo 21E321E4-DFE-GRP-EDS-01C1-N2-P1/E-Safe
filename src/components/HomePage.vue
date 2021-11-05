@@ -1,5 +1,5 @@
 <template>
-  <section id="carousel">
+  <section id="main-banner">
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -56,36 +56,80 @@
         <p class="text-light fs-3 ms-5">Best Sellers</p>
       </div>
       <div class="d-flex w-100 bg-light image-container radius-bottom" >
-        <div id="carouselExampleDark" class="w-100 carousel carousel-dark slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class=" d-flex justify-content-center carousel-item active" data-bs-interval="10000">
 
-              <div class="best-product d-flex " style="width: 80%;">
+
+        <div id="carouselExampleControls" class="w-100 carousel slide carousel-dark" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="best-product d-flex" style="width: 80%;">
+                <div class="col-md-5 position-relative">
+                  <img src="../assets/products/product_01.jpg" style="object-fit: cover; width: 100%; " alt="">
+                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">New</span>
+                </div>
+                <div class="col-md-7 row align-items-center m-5">
+                  <h5 class="fs-4">Roll Top Backpack</h5>
+                  <span class="bg-dark w-25 mx-auto" style="height: 1px;"></span>
+                  <p class="text-muted px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam velit, pariatur molestias, illum ullam quasi vitae exercitationem molestiae, nulla fugiat perspiciatis! Nulla a consequatur unde in velit, ex tempora?</p>
+                  <span class="bg-dark w-25 mx-auto" style="height: 1px;"></span>
+                  <span class="fw-bold fs-5"><span class="fs-6 text-muted text-decoration-line-through fw-normal">$400.00</span>  $365.00</span>
+                  <div class="d-inline mx-auto">
+                    <a href="#" class="col-md-3 btn btn-dark me-2">View More</a>
+                    <i class="btn btn-outline-dark col-md-1 bi bi-heart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="best-product d-flex" style="width: 80%;">
+                <div class="col-md-5 position-relative">
+                  <img src="../assets/products/product_02.jpg" style="object-fit: cover; width: 100%; " alt="">
+                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">New</span>
+                </div>
+                <div class="col-md-7 row align-items-center m-5">
+                  <h5 class="fs-4">Bomber in Cottone</h5>
+                  <span class="bg-dark w-25 mx-auto" style="height: 1px;"></span>
+                  <p class="text-muted px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam velit, pariatur molestias, illum ullam quasi vitae exercitationem molestiae, nulla fugiat perspiciatis! Nulla a consequatur unde in velit, ex tempora?</p>
+                  <span class="bg-dark w-25 mx-auto" style="height: 1px;"></span>
+                  <span class="fw-bold fs-5"><span class="fs-6 text-muted text-decoration-line-through fw-normal">$260.00</span>  $290.00</span>
+                  <div class="d-inline mx-auto">
+                    <a href="#" class="col-md-3 btn btn-dark me-2">View More</a>
+                    <i class="btn btn-outline-dark col-md-1 bi bi-heart"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="best-product d-flex" style="width: 80%;">
                 <div class="col-md-5 position-relative">
                   <img src="../assets/products/product_03.jpg" style="object-fit: cover; width: 100%; " alt="">
                   <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">New</span>
                 </div>
-                <div class="col-md-5 row align-items-center m-5">
-                  <h5 class="card-title">Bomber in Cottone</h5>
-                  <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam velit, pariatur molestias, illum ullam quasi vitae exercitationem molestiae, nulla fugiat perspiciatis! Nulla a consequatur unde in velit, ex tempora?</p>
-                  <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur hic eum dolores ex obcaecati natus dignissimos, quos nostrum vitae molestias, ut, numquam voluptates tempora neque consequatur dicta. At, laudantium esse.</p>
+                <div class="col-md-7 row align-items-center m-5">
+                  <h5 class="fs-4">Hooded Coat</h5>
+                  <span class="bg-dark w-25 mx-auto" style="height: 1px;"></span>
+                  <p class="text-muted px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium numquam velit, pariatur molestias, illum ullam quasi vitae exercitationem molestiae, nulla fugiat perspiciatis! Nulla a consequatur unde in velit, ex tempora?</p>
+                  <span class="bg-dark w-25 mx-auto" style="height: 1px;"></span>
                   <span class="fw-bold fs-5"><span class="fs-6 text-muted text-decoration-line-through fw-normal">$260.00</span>  $290.00</span>
+                  <div class="d-inline mx-auto">
+                    <a href="#" class="col-md-3 btn btn-dark me-2">View More</a>
+                    <i class="btn btn-outline-dark col-md-1 bi bi-heart"></i>
+                  </div>
                 </div>
-
               </div>
-       
             </div>
             
           </div>
-          <button class="carousel-control-prev"   type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
-        </div>
+        </div>      
       </div>
 
     </div>
@@ -124,27 +168,31 @@ export default {
 </script>
 
 <style>
-
 .image-carousel {
     object-fit: cover;
     height: 100vh;
 }
-
 .time-now {
   top: 50%;
   left: 30%;
 }
-
 .title-container {
   height: 15%;
 }
-
 .image-container {
   min-height: 85%;
 }
-
 .radius-bottom {
   border-radius: 0 0 50px 50px;
+}
+
+.best-product {
+  margin: 0 auto;
+}
+
+.btn-dark:hover {
+  background-color: transparent;
+  color: black;
 }
 
 @media (max-width: 960px) {
@@ -153,5 +201,4 @@ export default {
     flex-direction: column;
   }
 }
-
 </style>
