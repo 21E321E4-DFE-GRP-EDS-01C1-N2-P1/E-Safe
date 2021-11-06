@@ -131,7 +131,53 @@
       </div>
     </div>
   </section>
-
+  <section id="woman-styles">
+    <div class="w-100 box-container bg-dark">
+      <div class="d-flex justify-content-center align-items-center bg-dark title-container">
+        <p class="text-light fs-3">Woman Styles</p>
+      </div>
+      <div class="d-flex w-100 bg-light image-container radius-bottom ">
+        <div class="d-flex container mx-auto align-items-center">
+          <div class="overflow-hidden" style="min-width: 33%; ">
+            <a href="#">
+              <img src="../assets/woman-style/w-1.jpg" alt="" class="zoom" style=" object-fot: cover; max-width: 100%;">
+            </a>
+          </div>
+          <div class="" >
+            <div class="d-flex container" style="max-height: 100%">
+              <div class="m-1 overflow-hidden" style="max-height: 50%">
+                <a href="#">
+                  <img src="../assets/woman-style/w-2.jpg" alt="" class="zoom" style=" width: 100%; ">
+                </a>
+              </div>
+              <div class="m-1 overflow-hidden" style="max-height: 50%">
+                <a href="#">
+                  <img src="../assets/woman-style/w-3.jpg" alt="" class="zoom" style=" width: 100%">
+                </a>
+              </div>
+            </div>
+            <div class="d-flex container" style="max-height: 100%">
+              <div class="m-1 overflow-hidden" style="max-height: 33%">
+                <a href="#">
+                  <img src="../assets/woman-style/w-4.jpg" alt="" class="zoom" style=" width: 100%">
+                </a>
+              </div>
+              <div class="m-1 overflow-hidden" style="max-height: 33%">
+                <a href="#">
+                  <img src="../assets/woman-style/w-5.jpg" alt="" class="zoom" style=" width: 100%">
+                </a>
+              </div>
+              <div class="m-1 overflow-hidden" style="max-height: 33%">
+                <a href="#">
+                  <img src="../assets/woman-style/w-6.jpg" alt="" class="zoom" style=" width: 100%">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </template>
 
@@ -200,7 +246,6 @@ export default {
 .box-container {
   min-height: 100vh;
 }
-
 .title-container {
   min-height: 15vh;
 }
@@ -217,6 +262,14 @@ export default {
   background-color: transparent;
   color: black;
 }
+.zoom {
+  transition: all 0.3s;
+}
+
+.zoom:hover {
+  transform: scale(1.05)
+}
+
 
 @media (max-width: 960px) {
   .best-product {
@@ -225,6 +278,10 @@ export default {
   }
   .hide-component  {
     display: none;
+  }
+
+  .container {
+    flex-direction: column;
   }
  
 }
