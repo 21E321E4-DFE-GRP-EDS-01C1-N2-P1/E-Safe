@@ -9,7 +9,7 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img v-bind:src="banners.slide1.image" class="d-block w-100 image-carousel" alt="teste">
+          <img v-bind:src="banners.slide1.image" class="d-block w-100 image-carousel" alt="slide 1">
           <div class="position-absolute top-50 start-50 translate-middle">
             <p class="text-center text-uppercase fs-1">{{ banners.slide1.text }}</p>
             <div class="d-flex justify-content-evenly">
@@ -20,7 +20,7 @@
         </div>
 
         <div class="carousel-item">
-          <img v-bind:src="banners.slide2.image" class="d-block w-100 image-carousel" alt="teste">
+          <img v-bind:src="banners.slide2.image" class="d-block w-100 image-carousel" alt="slide 2">
           <div class="position-absolute time-now translate-middle">
             <p class="text-center text-uppercase fs-1">{{ banners.slide2.text }}</p>
             <div class="d-flex justify-content-center">
@@ -30,7 +30,7 @@
         </div>
 
         <div class="carousel-item">
-          <img v-bind:src="banners.slide3.image" class="d-block w-100 image-carousel" alt="teste">
+          <img v-bind:src="banners.slide3.image" class="d-block w-100 image-carousel" alt="slide 3">
           <div class="position-absolute top-50 start-50 translate-middle">
             <p class="text-center text-uppercase fs-1">{{ banners.slide3.text }}</p>
             <div class="d-flex justify-content-center">
@@ -52,23 +52,23 @@
   </section>
   <section id="best-sellers">
     <div class="w-100 box-container bg-dark">
-      <div class="d-flex align-items-center bg-dark title-container">
-        <p class="text-light fs-3 ms-5">Best Sellers</p>
+      <div class="d-flex justify-content-center align-items-center bg-dark title-container">
+        <p class=" text-light fs-3">Best Sellers</p>
       </div>
       <div class="d-flex w-100 bg-light image-container radius-bottom" >
         <div id="carouselExampleControls" class="w-100 carousel slide carousel-dark" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <div class="best-product d-flex" style="width: 80%;">
+              <div class="best-product d-flex resize-width-80">
                 <div class="col-md-5 position-relative">
-                  <img v-bind:src="bestSellers.product1.image" style="object-fit: cover; width: 100%; " alt="">
-                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">New</span>
+                  <img v-bind:src="bestSellers.product1.image" class="resize-main-slide" alt="product 01">
+                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">{{ bestSellers.product1.tag }}</span>
                 </div>
                 <div class="col-md-7 row align-items-center m-5">
                   <h5 class="fs-4">{{ bestSellers.product1.title }}</h5>
-                  <span class="hide-component bg-dark w-25 mx-auto" style="height: 1px;"></span>
+                  <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <p class="hide-component text-muted px-5">{{ bestSellers.product1.text }}</p>
-                  <span class="hide-component bg-dark w-25 mx-auto" style="height: 1px;"></span>
+                  <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSellers.product1.oldPrice }}</span> ${{ bestSellers.product1.price }}</span>
                   <div class="d-inline mx-auto">
                     <a href="#" class="col-md-3 btn btn-dark me-2">View More</a>
@@ -79,16 +79,16 @@
             </div>
 
             <div class="carousel-item">
-              <div class="best-product d-flex" style="width: 80%;">
+              <div class="best-product d-flex resize-width-80">
                 <div class="col-md-5 position-relative">
-                  <img v-bind:src="bestSellers.product2.image" style="object-fit: cover; width: 100%; " alt="">
-                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">New</span>
+                  <img v-bind:src="bestSellers.product2.image" class="resize-main-slide" alt="product 02">
+                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">{{ bestSellers.product2.tag }}</span>
                 </div>
                 <div class="col-md-7 row align-items-center m-5">
                   <h5 class="fs-4">{{ bestSellers.product2.title }}</h5>
-                  <span class="hide-component bg-dark w-25 mx-auto" style="height: 1px;"></span>
+                  <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <p class="hide-component text-muted px-5">{{ bestSellers.product2.text }}</p>
-                  <span class="hide-component bg-dark w-25 mx-auto" style="height: 1px;"></span>
+                  <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSellers.product2.oldPrice }}</span>  ${{ bestSellers.product2.price }}</span>
                   <div class="d-inline mx-auto">
                     <a href="#" class="col-md-3 btn btn-dark me-2">View More</a>
@@ -99,16 +99,16 @@
             </div>
 
             <div class="carousel-item">
-              <div class="best-product d-flex" style="width: 80%;">
+              <div class="best-product d-flex resize-width-80">
                 <div class="col-md-5 position-relative">
-                  <img v-bind:src="bestSellers.product3.image" style="object-fit: cover; width: 100%; " alt="">
-                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">New</span>
+                  <img v-bind:src="bestSellers.product3.image" class="resize-main-slide" alt="product 03">
+                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">{{ bestSellers.product3.tag }}</span>
                 </div>
                 <div class="col-md-7 row align-items-center m-5">
                   <h5 class="fs-4">{{ bestSellers.product3.title }}</h5>
-                  <span class="hide-component bg-dark w-25 mx-auto" style="height: 1px;"></span>
+                  <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <p class="hide-component text-muted px-5">{{ bestSellers.product3.text }}</p>
-                  <span class="hide-component bg-dark w-25 mx-auto" style="height: 1px;"></span>
+                  <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSellers.product3.oldPrice }}</span> ${{ bestSellers.product3.price }}</span>
                   <div class="d-inline mx-auto">
                     <a href="#" class="col-md-3 btn btn-dark me-2">View More</a>
@@ -138,38 +138,45 @@
       </div>
       <div class="d-flex w-100 bg-light image-container radius-bottom ">
         <div class="d-flex container mx-auto align-items-center">
-          <div class="overflow-hidden" style="min-width: 33%; ">
-            <a href="#">
-              <img src="../assets/woman-style/w-1.jpg" alt="" class="zoom" style=" object-fot: cover; max-width: 100%;">
+          <div class="overflow-hidden position-relative resize-main-div">
+            <a href="#" class="">
+              <p class="text-light fs-1 position-absolute top-50 start-50 translate-middle text-front">{{ womanStyle.mainCategoty.text }}</p>  
+              <p class="text-light fs-5 mt-5 pt-5 text-decoration-underline position-absolute top-50 start-50 translate-middle" style="z-index: 100;">{{ womanStyle.mainCategoty.link }}</p>  
+              <img v-bind:src="womanStyle.mainCategoty.image" alt="w1" class="zoom resize-main-slide">
             </a>
           </div>
           <div class="" >
-            <div class="d-flex container" style="max-height: 100%">
-              <div class="m-1 overflow-hidden" style="max-height: 50%">
+            <div class="d-flex container resize-height">
+              <div class="m-1 overflow-hidden resize-height-50 position-relative">
                 <a href="#">
-                  <img src="../assets/woman-style/w-2.jpg" alt="" class="zoom" style=" width: 100%; ">
+                  <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ womanStyle.category1.text }}</p>
+                  <img v-bind:src="womanStyle.category1.image" alt="w2" class="zoom resize-main-slide">
                 </a>
               </div>
-              <div class="m-1 overflow-hidden" style="max-height: 50%">
+              <div class="m-1 overflow-hidden resize-height-50 position-relative">
                 <a href="#">
-                  <img src="../assets/woman-style/w-3.jpg" alt="" class="zoom" style=" width: 100%">
+                  <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ womanStyle.category2.text }}</p>
+                  <img v-bind:src="womanStyle.category2.image" alt="w3" class="zoom resize-main-slide">
                 </a>
               </div>
             </div>
-            <div class="d-flex container" style="max-height: 100%">
-              <div class="m-1 overflow-hidden" style="max-height: 33%">
+            <div class="d-flex container resize-height">
+              <div class="m-1 overflow-hidden resize-height-33 position-relative">
                 <a href="#">
-                  <img src="../assets/woman-style/w-4.jpg" alt="" class="zoom" style=" width: 100%">
+                  <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ womanStyle.category3.text }}</p>
+                  <img v-bind:src="womanStyle.category3.image" alt="w4" class="zoom resize-main-slide">
                 </a>
               </div>
-              <div class="m-1 overflow-hidden" style="max-height: 33%">
+              <div class="m-1 overflow-hidden resize-height-33 position-relative">
                 <a href="#">
-                  <img src="../assets/woman-style/w-5.jpg" alt="" class="zoom" style=" width: 100%">
+                  <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ womanStyle.category4.text }}</p>
+                  <img v-bind:src="womanStyle.category4.image" alt="w5" class="zoom resize-main-slide">
                 </a>
               </div>
-              <div class="m-1 overflow-hidden" style="max-height: 33%">
+              <div class="m-1 overflow-hidden resize-height-33 position-relative">
                 <a href="#">
-                  <img src="../assets/woman-style/w-6.jpg" alt="" class="zoom" style=" width: 100%">
+                  <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ womanStyle.category5.text }}</p>
+                  <img v-bind:src="womanStyle.category5.image" alt="w6" class="zoom resize-main-slide">
                 </a>
               </div>
             </div>
@@ -178,6 +185,63 @@
       </div>
     </div>
   </section>
+  <section id="man-styles">
+    <div class="w-100 box-container bg-dark">
+      <div class="d-flex justify-content-center align-items-center bg-dark title-container">
+        <p class="text-light fs-3">Man Styles</p>
+      </div>
+      <div class="d-flex w-100 bg-light image-container radius-bottom ">
+        <div class="d-flex container mx-auto align-items-center">
+          <div class="" >
+            <div class="d-flex container resize-height">
+              <div class="m-1 overflow-hidden resize-height-50 position-relative">
+                <a href="#">
+                  <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ manStyle.category1.text }}</p>
+                  <img v-bind:src="manStyle.category1.image" alt="w2" class="zoom resize-main-slide">
+                </a>
+              </div>
+              <div class="m-1 overflow-hidden resize-height-50 position-relative">
+                <a href="#">
+                  <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ manStyle.category2.text }}</p>
+                  <img v-bind:src="manStyle.category2.image" alt="w3" class="zoom resize-main-slide">
+                </a>
+              </div>
+            </div>
+            <div class="d-flex container resize-height">
+              <div class="m-1 overflow-hidden resize-height-33 position-relative">
+                <a href="#">
+                  <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ manStyle.category3.text }}</p>
+                  <img v-bind:src="manStyle.category3.image" alt="w4" class="zoom resize-main-slide">
+                </a>
+              </div>
+              <div class="m-1 overflow-hidden resize-height-33 position-relative">
+                <a href="#">
+                  <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ manStyle.category4.text }}</p>
+                  <img v-bind:src="manStyle.category4.image" alt="w5" class="zoom resize-main-slide">
+                </a>
+              </div>
+              <div class="m-1 overflow-hidden resize-height-33 position-relative">
+                <a href="#">
+                  <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ manStyle.category5.text }}</p>
+                  <img v-bind:src="manStyle.category5.image" alt="w6" class="zoom resize-main-slide">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="overflow-hidden position-relative resize-main-div">
+            <a href="#" class="">
+              <p class="text-light fs-1 position-absolute top-50 start-50 translate-middle text-front">{{ manStyle.mainCategoty.text }}</p>  
+              <p class="text-light fs-5 mt-5 pt-5 text-decoration-underline position-absolute top-50 start-50 translate-middle" style="z-index: 100;">{{ manStyle.mainCategoty.link }}</p>  
+              <img v-bind:src="manStyle.mainCategoty.image" alt="w1" class="zoom resize-main-slide">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
 
 </template>
 
@@ -205,30 +269,89 @@ export default {
             btnText1: "Shop Now"
           }
         },
-        bestSellers: 
-          {
-            product1: {
-              title: "Roll Top Backpack",
-              image: require("../assets/products/product_01.jpg"), 
-              text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, nulla. Aspernatur possimus provident mollitia perferendis veritatis perspiciatis repellat, necessitatibus, amet inventore illo blanditiis aperiam tempora soluta dolorum eum accusamus sunt.",
-              price: 365.00,
-              oldPrice: 400.00
-            },
-            product2: {
-              title: "Bomber in Cotton",
-              image: require("../assets/products/product_02.jpg"), 
-              text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque a dignissimos, nesciunt consequatur omnis, illo modi unde officia, quisquam corporis incidunt voluptates quidem autem repudiandae? Temporibus natus harum reiciendis quas.",
-              price: 290.00,
-              oldPrice: 260.00
-            },
-            product3: {
-              title: "Hooded Coat",
-              image: require("../assets/products/product_03.jpg"), 
-              text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti veniam nesciunt temporibus eveniet aspernatur! Tenetur molestias esse accusamus unde quidem, non harum reprehenderit quasi hic exercitationem, aspernatur nobis vero!",
-              price: 320.00,
-              oldPrice: 295.00
-            },
+      bestSellers: 
+        {
+          product1: {
+            title: "Roll Top Backpack",
+            image: require("../assets/products/product_01.jpg"), 
+            text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, nulla. Aspernatur possimus provident mollitia perferendis veritatis perspiciatis repellat, necessitatibus, amet inventore illo blanditiis aperiam tempora soluta dolorum eum accusamus sunt.",
+            price: 365.00,
+            oldPrice: 400.00,
+            tag: "New"
+          },
+          product2: {
+            title: "Bomber in Cotton",
+            image: require("../assets/products/product_02.jpg"), 
+            text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque a dignissimos, nesciunt consequatur omnis, illo modi unde officia, quisquam corporis incidunt voluptates quidem autem repudiandae? Temporibus natus harum reiciendis quas.",
+            price: 290.00,
+            oldPrice: 260.00,
+            tag: "New"
+          },
+          product3: {
+            title: "Hooded Coat",
+            image: require("../assets/products/product_03.jpg"), 
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti veniam nesciunt temporibus eveniet aspernatur! Tenetur molestias esse accusamus unde quidem, non harum reprehenderit quasi hic exercitationem, aspernatur nobis vero!",
+            price: 320.00,
+            oldPrice: 295.00,
+            tag: "New"
           }
+        },
+      womanStyle: 
+        {
+          mainCategoty: {
+            image: require("../assets/woman-style/w-1.jpg"), 
+            text: "New Arrivals",
+            link: "Explore Now"
+          },
+          category1: {
+            image: require("../assets/woman-style/w-2.jpg"), 
+            text: "Short&Pants"
+          },
+          category2: {
+            image: require("../assets/woman-style/w-3.jpg"), 
+            text: "Accessories"
+          },
+          category3: {
+            image: require("../assets/woman-style/w-4.jpg"), 
+            text: "Skirts"
+          },
+          category4: {
+            image: require("../assets/woman-style/w-5.jpg"), 
+            text: "Bags"
+          },
+          category5: {
+            image: require("../assets/woman-style/w-6.jpg"), 
+            text: "Shoes"
+          },
+        },
+      manStyle: 
+        {
+          mainCategoty: {
+            image: require("../assets/man-style/m-1.jpg"), 
+            text: "New Arrivals",
+            link: "Explore Now"
+          },
+          category1: {
+            image: require("../assets/man-style/m-2.jpg"), 
+            text: "Shirts"
+          },
+          category2: {
+            image: require("../assets/man-style/m-3.jpg"), 
+            text: "Short&Pants"
+          },
+          category3: {
+            image: require("../assets/man-style/m-4.jpg"), 
+            text: "Shoes"
+          },
+          category4: {
+            image: require("../assets/man-style/m-5.jpg"), 
+            text: "Hats"
+          },
+          category5: {
+            image: require("../assets/man-style/m-6.jpg"), 
+            text: "T-shirts"
+          },
+        },
     }
   }
 }
@@ -265,11 +388,34 @@ export default {
 .zoom {
   transition: all 0.3s;
 }
-
 .zoom:hover {
-  transform: scale(1.05)
+  transform: scale(1.1)
 }
-
+.minimal-line {
+  height: 1px;
+}
+.resize-width-80 {
+  width: 80%;
+}
+.resize-main-div {
+  max-width: 90%;
+}
+.resize-main-slide { 
+  object-fit: cover;
+  max-width: 100%;
+} 
+.resize-height {
+  max-height: 100% 
+}
+.resize-height-50 {
+  max-height: 50%
+}
+.resize-height-33 {
+  max-height: 33%
+}
+.text-front {
+  z-index: 100;
+}
 
 @media (max-width: 960px) {
   .best-product {
@@ -282,6 +428,7 @@ export default {
 
   .container {
     flex-direction: column;
+    margin-bottom: 20px;
   }
  
 }
