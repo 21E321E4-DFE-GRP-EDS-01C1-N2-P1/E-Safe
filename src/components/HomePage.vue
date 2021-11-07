@@ -134,7 +134,7 @@
   <section id="woman-styles">
     <div class="w-100 box-container bg-dark">
       <div class="d-flex justify-content-center align-items-center bg-dark title-container">
-        <p class="text-light fs-3">Woman Styles</p>
+        <p class="text-light fs-3">Woman Style</p>
       </div>
       <div class="d-flex w-100 bg-light image-container radius-bottom ">
         <div class="d-flex container mx-auto align-items-center">
@@ -188,7 +188,7 @@
   <section id="man-styles">
     <div class="w-100 box-container bg-dark">
       <div class="d-flex justify-content-center align-items-center bg-dark title-container">
-        <p class="text-light fs-3">Man Styles</p>
+        <p class="text-light fs-3">Man Style</p>
       </div>
       <div class="d-flex w-100 bg-light image-container radius-bottom ">
         <div class="d-flex container mx-auto align-items-center">
@@ -239,6 +239,35 @@
       </div>
     </div>
   </section>
+  <section id="pet-styles">
+    <div class="w-100 box-container bg-dark">
+      <div class="d-flex justify-content-center align-items-center bg-dark title-container">
+        <p class="text-light fs-3">Pet Style</p>
+      </div>
+      <div class="d-flex w-100 bg-light image-container radius-bottom ">
+        <div class="d-flex container mx-auto align-items-center">
+          <div class="m-1 overflow-hidden position-relative">
+            <a href="#">
+              <p class="text-dark fs-5 text-decoration-underline position-absolute top-0 start-50 pt-5 translate-middle text-front">{{ petStyle.category1.text }}</p>
+              <img v-bind:src="petStyle.category1.image" alt="w2" class="zoom resize-main-slide">
+            </a>
+          </div>
+          <div class="m-1 overflow-hidden position-relative">
+            <a href="#">
+              <p class="text-dark fs-5 text-decoration-underline position-absolute top-0 start-50 pt-5 translate-middle text-front">{{ petStyle.category2.text }}</p>
+              <img v-bind:src="petStyle.category2.image" alt="w2" class="zoom resize-main-slide">
+            </a>
+          </div>
+          <div class="m-1 overflow-hidden position-relative">
+            <a href="#">
+              <p class="text-dark fs-5 text-decoration-underline position-absolute top-0 start-50 pt-5 translate-middle text-front">{{ petStyle.category3.text }}</p>
+              <img v-bind:src="petStyle.category3.image" alt="w2" class="zoom resize-main-slide">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section id="footer" class="bg-dark pt-5">
     <div class="container">
       <footer class="py-3">
@@ -249,7 +278,7 @@
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Woman</a></li>
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Men</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Outlet</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pet</a></li>
             </ul>
           </div>
 
@@ -266,7 +295,7 @@
           <div class="col-md-8">
             <img src="https://cdn-icons-png.flaticon.com/512/217/217422.png" class="mx-4 resize-icon" width="100" alt="paypal">
             <img src="https://cdn-icons-png.flaticon.com/512/1488/1488176.png" class="mx-4 resize-icon" width="100" alt="money back">
-            <img src="https://cdn-icons.flaticon.com/png/512/3009/premium/3009916.png?token=exp=1636249784~hmac=8511a89887cf0f537d6885fa721106b0" class="mx-4 resize-icon" width="100" alt="credit card">
+            <img src="https://cdn-icons-png.flaticon.com/512/4289/4289291.png" class="mx-4 resize-icon" width="100" alt="credit card">
           </div>
         </div>
 
@@ -392,6 +421,21 @@ export default {
             text: "T-shirts"
           },
         },
+      petStyle: 
+        {
+          category1: {
+            image: require("../assets/pet-style/p-1.jpg"), 
+            text: "Scratchers"
+          },
+          category2: {
+            image: require("../assets/pet-style/p-2.jpg"), 
+            text: "Transport bags"
+          },
+          category3: {
+            image: require("../assets/pet-style/p-3.jpg"), 
+            text: "Beds"
+          },
+        }
     }
   }
 }
