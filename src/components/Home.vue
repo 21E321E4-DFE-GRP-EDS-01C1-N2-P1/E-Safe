@@ -64,13 +64,13 @@
                   <img v-bind:src="bestSellers.product1.image" class="resize-main-slide" alt="product 01">
                   <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">{{ bestSellers.product1.tag }}</span>
                 </div>
-                <div class="col-md-7 row align-items-center m-5">
+                <div class="col-md-7 row align-items-center m-5 text-center">
                   <h5 class="fs-4">{{ bestSellers.product1.title }}</h5>
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <p class="hide-component text-muted px-5">{{ bestSellers.product1.text }}</p>
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSellers.product1.oldPrice }}</span> ${{ bestSellers.product1.price }}</span>
-                  <div class="d-inline mx-auto">
+                  <div class="d-block">
                     <a href="#" class="col-md-3 btn btn-dark me-2">View More</a>
                     <i class="btn btn-outline-dark col-md-1 bi bi-heart"></i>
                   </div>
@@ -79,7 +79,7 @@
             </div>
 
             <div class="carousel-item">
-              <div class="best-product d-flex resize-width-80">
+              <div class="best-product d-flex resize-width-80 text-center">
                 <div class="col-md-5 position-relative">
                   <img v-bind:src="bestSellers.product2.image" class="resize-main-slide" alt="product 02">
                   <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">{{ bestSellers.product2.tag }}</span>
@@ -90,7 +90,7 @@
                   <p class="hide-component text-muted px-5">{{ bestSellers.product2.text }}</p>
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSellers.product2.oldPrice }}</span>  ${{ bestSellers.product2.price }}</span>
-                  <div class="d-inline mx-auto">
+                  <div class="d-block">
                     <a href="#" class="col-md-3 btn btn-dark me-2">View More</a>
                     <i class="btn btn-outline-dark col-md-1 bi bi-heart"></i>
                   </div>
@@ -99,7 +99,7 @@
             </div>
 
             <div class="carousel-item">
-              <div class="best-product d-flex resize-width-80">
+              <div class="best-product d-flex resize-width-80 text-center">
                 <div class="col-md-5 position-relative">
                   <img v-bind:src="bestSellers.product3.image" class="resize-main-slide" alt="product 03">
                   <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">{{ bestSellers.product3.tag }}</span>
@@ -110,7 +110,7 @@
                   <p class="hide-component text-muted px-5">{{ bestSellers.product3.text }}</p>
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSellers.product3.oldPrice }}</span> ${{ bestSellers.product3.price }}</span>
-                  <div class="d-inline mx-auto">
+                  <div class="d-block">
                     <a href="#" class="col-md-3 btn btn-dark me-2">View More</a>
                     <i class="btn btn-outline-dark col-md-1 bi bi-heart"></i>
                   </div>
@@ -139,7 +139,7 @@
       <div class="d-flex w-100 bg-light image-container radius-bottom ">
         <div class="d-flex container mx-auto align-items-center">
           <div class="overflow-hidden position-relative resize-main-div">
-            <a href="#" class="">
+            <a href="#" class="text-center">
               <p class="text-light fs-1 position-absolute top-50 start-50 translate-middle text-front">{{ womanStyle.mainCategoty.text }}</p>  
               <p class="text-light fs-5 mt-5 pt-5 text-decoration-underline position-absolute top-50 start-50 translate-middle" style="z-index: 100;">{{ womanStyle.mainCategoty.link }}</p>  
               <img v-bind:src="womanStyle.mainCategoty.image" alt="w1" class="zoom resize-main-slide">
@@ -229,7 +229,7 @@
             </div>
           </div>
           <div class="overflow-hidden position-relative resize-main-div">
-            <a href="#" class="">
+            <a href="#" class="text-center">
               <p class="text-light fs-1 position-absolute top-50 start-50 translate-middle text-front">{{ manStyle.mainCategoty.text }}</p>  
               <p class="text-light fs-5 mt-5 pt-5 text-decoration-underline position-absolute top-50 start-50 translate-middle" style="z-index: 100;">{{ manStyle.mainCategoty.link }}</p>  
               <img v-bind:src="manStyle.mainCategoty.image" alt="w1" class="zoom resize-main-slide">
@@ -268,7 +268,7 @@
       </div>
     </div>
   </section>
-  <section id="footer" class="bg-dark pt-5">
+  <!-- <section id="footer" class="bg-dark pt-5">
     <div class="container">
       <footer class="py-3">
         <div class="row">
@@ -282,7 +282,7 @@
             </ul>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-4">
             <h5 class="text-light">Institutional</h5>
             <ul class="nav flex-column">
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contact Us</a></li>
@@ -292,7 +292,7 @@
             </ul>
           </div>
           
-          <div class="col-md-8">
+          <div class="col-md-6">
             <img src="https://cdn-icons-png.flaticon.com/512/217/217422.png" class="mx-4 resize-icon" width="100" alt="paypal">
             <img src="https://cdn-icons-png.flaticon.com/512/1488/1488176.png" class="mx-4 resize-icon" width="100" alt="money back">
             <img src="https://cdn-icons-png.flaticon.com/512/4289/4289291.png" class="mx-4 resize-icon" width="100" alt="credit card">
@@ -309,14 +309,14 @@
         </div>
       </footer>
     </div>
-  </section>
+  </section> -->
 
 
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: 'Home',
   data: function() {
     return {
       banners: 
@@ -441,7 +441,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .image-carousel {
     object-fit: cover;
     height: 100vh;
@@ -498,7 +498,7 @@ export default {
   max-height: 33%
 }
 .text-front {
-  z-index: 100;
+  z-index: 99;
 }
 
 @media (max-width: 760px) {
@@ -522,9 +522,9 @@ export default {
     margin-bottom: 20px;
   }
 
-  .resize-icon {
-    transform: scale(0.8)
-  }
+  // .resize-icon {
+  //   transform: scale(0.8)
+  // }
  
 }
 </style>

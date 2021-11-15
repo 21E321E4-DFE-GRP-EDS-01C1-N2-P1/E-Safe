@@ -78,12 +78,12 @@ export default {
 <style lang="scss" scoped>
 
 header {
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 99;
+  background-color: transparent;
+  z-index: 999;
   width: 100%;
   position: fixed;
   transition: .5s ease all;
-  color: white;
+  color: #212529;
   nav {
     position: relative;
     display: flex;
@@ -98,7 +98,7 @@ header {
 
     ul, .link {
       font-weight: 500;
-      color: white;
+      color: #212529;
       list-style: none;
       text-decoration: none;
     }
@@ -131,6 +131,7 @@ header {
       .branding-name{
         font-size: 2rem;
         margin-left: 28px;
+        margin-bottom: 0;
       }
     }
 
@@ -194,11 +195,13 @@ header {
 }
 
 .scrolled-nav {
-  background-color: black;
+  background-color: #212529;
+  color: white;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
-  nav{
+  nav, .link{
     padding: 8px 0;
+    color: white;
 
     .branding{
       img{
