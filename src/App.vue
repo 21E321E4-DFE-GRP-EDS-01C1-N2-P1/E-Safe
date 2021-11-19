@@ -1,24 +1,33 @@
 <template>
-  <div id="app">
+  <div >
     <Navigation/>
     <router-view />
-    <HomePage/>
+    <!-- <Home/> -->
+    <!-- <Women /> -->
+    <Men/>
     <Footer/>
   </div>
 </template>
 
 <script>
 import Navigation from './components/Navigation.vue'
-import HomePage from './components/Home.vue'
+// import HomePage from './components/Home.vue'
 import Footer from './components/Footer.vue'
+// import Women from './components/Women/Women.vue'
+import Men from './components/Men/Men.vue'
+import Home from './components/Home.vue'
+
 export default {
   name: 'App',
   components: {
     Navigation,
-    HomePage,
-    Footer
+    // HomePage,
+    Footer,
+    // Women
+    Men
   }
-}
+,
+    Home}
 </script>
 
 <style lang="scss" scoped>

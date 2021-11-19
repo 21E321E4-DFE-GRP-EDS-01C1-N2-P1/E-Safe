@@ -78,12 +78,12 @@ export default {
 <style lang="scss" scoped>
 
 header {
-  background-color: transparent;
+  background-color: rgba(33, 37, 41, 0.9);
   z-index: 999;
   width: 100%;
   position: fixed;
   transition: .5s ease all;
-  color: #212529;
+  color: white;
   nav {
     position: relative;
     display: flex;
@@ -98,7 +98,7 @@ header {
 
     ul, .link {
       font-weight: 500;
-      color: #212529;
+      color: white;
       list-style: none;
       text-decoration: none;
     }
@@ -109,6 +109,7 @@ header {
       margin-left: 16px;
     }
     .link {
+      cursor: pointer;
       font-size: 14px;
       transition: .5s ease all;
       padding-bottom: 4px;
