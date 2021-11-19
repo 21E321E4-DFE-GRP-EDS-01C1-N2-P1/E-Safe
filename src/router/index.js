@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../components/HomePage.vue";
-// import Women from "../components/Women.vue";
+import Home from "../components/Home.vue";
+import Women from "../components/Women/Women.vue";
+import Men from "../components/Men/Men.vue";
+import Pet from "../components/Pet/Pet.vue";
 
 const routes = [
   {
@@ -8,11 +10,21 @@ const routes = [
     name: "Home",
     component: Home,
   },
-//   {
-//     path: "/Women",
-//     name: "Women",
-//     component: Women,
-//   },
+  {
+    path: "/Women",
+    name: "Women",
+    component: Women,
+  },
+  {
+    path: "/Men",
+    name: "Men",
+    component: Men,
+  },
+  {
+    path: "/Pet",
+    name: "Pet",
+    component: Pet,
+  },
 ];
 
 const router = createRouter({

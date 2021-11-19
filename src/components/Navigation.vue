@@ -7,9 +7,9 @@
       </div>
       <ul v-show="!mobile" class="navigation">
         <li><router-link class="link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
-        <li><router-link class="link" :to="{name: ''}">&lt; Women /&gt;</router-link></li>
-        <li><router-link class="link" :to="{name: ''}">&lt; Men /&gt;</router-link></li>
-        <li><router-link class="link" :to="{name: ''}">&lt; Pet /&gt;</router-link></li>
+        <li><router-link class="link" :to="{name: 'Women'}">&lt; Women /&gt;</router-link></li>
+        <li><router-link class="link" :to="{name: 'Men'}">&lt; Men /&gt;</router-link></li>
+        <li><router-link class="link" :to="{name: 'Pet'}">&lt; Pet /&gt;</router-link></li>
         <li><router-link class="link-account" :to="{name: ''}"> &lt; My Account /&gt; </router-link></li>
         <li><router-link class="link" :to="{name: ''}">&lt; Cart /&gt;</router-link></li>
 
@@ -21,9 +21,9 @@
         <ul v-show="mobileNav" class="dropdown-nav">
           <li><router-link class="link-account" :to="{name: ''}">&lt; My Account /&gt;</router-link></li>
           <li><router-link class="link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
-          <li><router-link class="link" :to="{name: ''}">&lt; Women /&gt;</router-link></li>
-          <li><router-link class="link" :to="{name: ''}">&lt; Men /&gt;</router-link></li>
-          <li><router-link class="link" :to="{name: ''}">&lt; Pet /&gt;</router-link></li>          
+          <li><router-link class="link" :to="{name: 'Women'}">&lt; Women /&gt;</router-link></li>
+          <li><router-link class="link" :to="{name: 'Men'}">&lt; Men /&gt;</router-link></li>
+          <li><router-link class="link" :to="{name: 'Pet'}">&lt; Pet /&gt;</router-link></li>          
         </ul>
       </transition>
     </nav>
@@ -82,8 +82,8 @@ export default {
 <style lang="scss" scoped>
 
 header {
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 99;
+  background-color: rgba(33, 37, 41, 0.9);
+  z-index: 999;
   width: 100%;
   position: fixed;
   transition: .5s ease all;
@@ -118,6 +118,7 @@ header {
       margin-left: 16px;
     }
     .link {
+      cursor: pointer;
       font-size: 14px;
       transition: .5s ease all;
       padding-bottom: 4px;
@@ -154,6 +155,7 @@ header {
       .branding-name{
         font-size: 2rem;
         margin-left: 28px;
+        margin-bottom: 0;
       }
     }
 
@@ -223,11 +225,13 @@ header {
 }
 
 .scrolled-nav {
-  background-color: black;
+  background-color: #212529;
+  color: white;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
-  nav{
+  nav, .link{
     padding: 8px 0;
+    color: white;
 
     .branding{
       img{

@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div >
     <Navigation/>
   </div>
   <router-view />
@@ -7,20 +7,22 @@
 
 <script>
 import Navigation from './components/Navigation.vue'
-// import HomePage from './components/HomePage.vue'
+
 export default {
   name: 'App',
   components: {
-    Navigation,
-    // HomePage,
+    Navigation
   }
 }
 </script>
 
-<style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+<style lang="scss" scoped>
+// @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
