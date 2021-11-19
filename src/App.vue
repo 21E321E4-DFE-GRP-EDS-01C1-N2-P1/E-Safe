@@ -1,19 +1,18 @@
 <template>
   <div class="app">
     <Navigation/>
-    <router-view />
   </div>
-  <HomePage msg="Welcome to Coding Style"/>
+  <router-view />
 </template>
 
 <script>
 import Navigation from './components/Navigation.vue'
-import HomePage from './components/HomePage.vue'
+// import HomePage from './components/HomePage.vue'
 export default {
   name: 'App',
   components: {
     Navigation,
-    HomePage,
+    // HomePage,
   }
 }
 </script>

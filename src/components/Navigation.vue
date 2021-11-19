@@ -6,20 +6,24 @@
         <p class="branding-name">Coding Style</p>
       </div>
       <ul v-show="!mobile" class="navigation">
-        <li><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
-        <li><router-link class="link" :to="{name: ''}">Women</router-link></li>
-        <li><router-link class="link" :to="{name: ''}">Men</router-link></li>
-        <li><router-link class="link" :to="{name: ''}">Pet</router-link></li>
+        <li><router-link class="link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
+        <li><router-link class="link" :to="{name: ''}">&lt; Women /&gt;</router-link></li>
+        <li><router-link class="link" :to="{name: ''}">&lt; Men /&gt;</router-link></li>
+        <li><router-link class="link" :to="{name: ''}">&lt; Pet /&gt;</router-link></li>
+        <li><router-link class="link-account" :to="{name: ''}"> &lt; My Account /&gt; </router-link></li>
+        <li><router-link class="link" :to="{name: ''}">&lt; Cart /&gt;</router-link></li>
+
       </ul>
       <div class="icon">
         <i @click="toggleMobileNav" v-show="mobile" class="far fa-bars" :class="{'icon-active' : mobileNav}"></i>
       </div>
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
-          <li><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
-          <li><router-link class="link" :to="{name: ''}">Women</router-link></li>
-          <li><router-link class="link" :to="{name: ''}">Men</router-link></li>
-          <li><router-link class="link" :to="{name: ''}">Pet</router-link></li>
+          <li><router-link class="link-account" :to="{name: ''}">&lt; My Account /&gt;</router-link></li>
+          <li><router-link class="link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
+          <li><router-link class="link" :to="{name: ''}">&lt; Women /&gt;</router-link></li>
+          <li><router-link class="link" :to="{name: ''}">&lt; Men /&gt;</router-link></li>
+          <li><router-link class="link" :to="{name: ''}">&lt; Pet /&gt;</router-link></li>          
         </ul>
       </transition>
     </nav>
@@ -95,8 +99,13 @@ header {
     @media (min-width: 1140px){
       max-width: 1140px;
     }
+    @media (max-width: 1165px){
+      .branding-name {
+        display: none;
+      }
+    }
 
-    ul, .link {
+    ul, .link, .link-account {
       font-weight: 500;
       color: white;
       list-style: none;
@@ -113,6 +122,20 @@ header {
       transition: .5s ease all;
       padding-bottom: 4px;
       border-bottom: 1px solid transparent;
+      cursor: pointer;
+
+      &:hover {
+        color: #08afea;
+        border-color: #08afea;
+      }
+    }
+    .link-account {
+      font-size: 14px;
+      transition: .5s ease all;
+      padding: 4px;
+      border: 1px solid transparent;
+      border-color: #ffffff;
+      cursor: pointer;
 
       &:hover {
         color: #08afea;
@@ -173,8 +196,14 @@ header {
 
       li {
         margin-left: 0;
-        .link {
+        .link, .link-account {
           color: #000;
+        }
+        .link-account {
+          border-color: #000;
+          &:hover {
+            border-color: #08afea;
+          }
         }
       }
     }
