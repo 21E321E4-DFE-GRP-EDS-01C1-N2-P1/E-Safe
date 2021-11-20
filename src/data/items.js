@@ -8,7 +8,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus reiciendis exercitationem atque architecto illo ipsa nobis rem corrupti, quisquam deleniti explicabo amet natus dolorem assumenda iusto odio id, voluptates dolor!',
         category: 'bags',
         size: ['Unique'],
-        gender: 'female'                    
+        gender: 'female',
+        qt: 10                    
     },
     {
         id: '0001',
@@ -19,7 +20,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta sint molestias animi quia, iste doloribus autem aliquid cupiditate corporis facere blanditiis fugiat nisi veniam voluptatum, ullam dicta quod praesentium.',
         category: 'accessories',
         size: ['Unique'],
-        gender: 'female'
+        gender: 'female',
+        qt: 10
     },
     {
         id: '0002',
@@ -30,7 +32,8 @@ const items = [
         description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis animi esse assumenda tempora consectetur! Officiis molestiae laboriosam amet mollitia nemo iusto sed voluptates, quaerat quo fuga tenetur praesentium, dolor provident!',
         category: 'clothes',
         size: ['Small', 'Medium', 'Large'],
-        gender: 'female'
+        gender: 'female',
+        qt: 10
     },
     {
         id: '0003',
@@ -41,7 +44,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ut nostrum, accusantium voluptate optio provident cumque consectetur atque illum! Quo excepturi commodi laudantium sequi cupiditate modi eaque error debitis veniam.',
         category: 'clothes',
         size: ['Small', 'Medium', 'Large'],
-        gender: 'male'
+        gender: 'male',
+        qt: 10
     },
     {
         id: '0004',
@@ -52,7 +56,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos numquam fugit excepturi quo magnam. Tempora, accusamus, tempore dolores nam beatae enim veniam illum, repellendus autem inventore hic illo. Perferendis, laudantium.',
         category: 'clothes',
         size: ['Small', 'Medium'],
-        gender: 'female'
+        gender: 'female',
+        qt: 10
     },
     {
         id: '0005',
@@ -63,7 +68,8 @@ const items = [
         description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, dignissimos sunt suscipit molestias dolor fuga repellendus laborum id ipsam laudantium amet repudiandae voluptatum, dolore corrupti quidem minus libero itaque aliquid!',
         category: 'accessories',
         size: ['Unique'],
-        gender: 'male'
+        gender: 'male',
+        qt: 10
     },
     {
         id: '0006',
@@ -74,7 +80,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas illo tenetur natus cumque reiciendis, quasi adipisci? Placeat aperiam ipsa saepe cum vel est aliquam nisi quaerat, suscipit nam ducimus nobis?',
         category: 'shoes',
         size: ['36', '38', '40', '42', '44'],
-        gender: 'male'
+        gender: 'male',
+        qt: 10
     },
     {
         id: '0007',
@@ -85,7 +92,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam molestias officia accusantium, animi velit sit aspernatur incidunt, quo corrupti iusto dolorem alias ut id, culpa quae eos facere dolor molestiae!',
         category: 'bags',
         size: ['Unique'],
-        gender: 'unisex'
+        gender: 'unisex',
+        qt: 10
     },
     {
         id: '0008',
@@ -96,7 +104,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, ea facere illum deserunt esse mollitia voluptatum quam aut tempora, aspernatur doloribus eius eligendi obcaecati iusto, corporis totam voluptatibus unde et.',
         category: 'shoes',
         size: ['36', '38', '40'],
-        gender: 'unisex'
+        gender: 'unisex',
+        qt: 10
     },
     {
         id: '0009',
@@ -107,7 +116,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi distinctio assumenda labore doloribus numquam ut, iure iusto soluta ad. Doloribus aspernatur repudiandae sunt totam deserunt ratione sequi, quod tenetur vero!',
         category: 'accessories',
         size: ['Unique'],
-        gender: 'unisex'
+        gender: 'unisex',
+        qt: 10
     },
     {
         id: '0010',
@@ -118,7 +128,8 @@ const items = [
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo ab quod pariatur asperiores excepturi dignissimos veniam eum voluptas id repellendus, nisi fuga error modi illum quaerat autem quas aliquid tempora.',
         category: 'bags',
         size: ['Unique'],
-        gender: 'unisex'
+        gender: 'unisex',
+        qt: 10
     },
     {
         id: '0011',
@@ -129,7 +140,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente asperiores dicta laudantium doloremque voluptas vero neque dolorum necessitatibus maxime sed, autem officiis enim, quo dignissimos tempore nemo suscipit impedit animi.',
         category: 'clothes',
         size: ['Small', 'Medium', 'Large'],
-        gender: 'female'
+        gender: 'female',
+        qt: 10
     },
     {
         id: '0012',
@@ -140,7 +152,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum reprehenderit deserunt facilis doloremque assumenda quibusdam quidem, voluptate ipsum at exercitationem dolor architecto nam distinctio consequuntur itaque maiores, magnam commodi. Dolor?',
         category: 'bags',
         size: ['Unique'],
-        gender: 'pet'
+        gender: 'pet',
+        qt: 10
     },
     {
         id: '0013',
@@ -151,7 +164,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam doloribus maxime odio a similique sunt deserunt magnam voluptatibus? Dolorem saepe vero ab quisquam ipsam mollitia, sequi officiis accusantium pariatur porro.',
         category: '',
         size: ['Unique'],
-        gender: 'pet'
+        gender: 'pet',
+        qt: 10
     },
     {
         id: '0014',
@@ -162,7 +176,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint alias, explicabo nostrum porro optio culpa odio labore. Asperiores consequatur distinctio, laborum praesentium aspernatur itaque magni autem ullam ex mollitia amet!',
         category: '',
         size: ['Unique'],
-        gender: 'pet'
+        gender: 'pet',
+        qt: 10
     },
     {
         id: '0015',
@@ -184,7 +199,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, quo dolore. Culpa natus aliquid corporis voluptatum saepe quo animi libero, amet vel, et similique suscipit odit quisquam maxime totam quod?',
         category: '',
         size: ['Unique'],
-        gender: 'pet'
+        gender: 'pet',
+        qt: 10
     },
     {
         id: '0017',
@@ -195,7 +211,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem distinctio dicta nulla provident, ea quam! Impedit eius fuga recusandae nihil, beatae ea. Hic, vel! Cum qui quo quia deserunt alias?',
         category: '',
         size: ['Unique'],
-        gender: 'pet'
+        gender: 'pet',
+        qt: 10
     },
     {
         id: '0018',
@@ -206,7 +223,8 @@ const items = [
         description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, in quas maiores quasi quidem aut consequuntur sunt iure sint necessitatibus? Odit, et optio! Odio ullam quia numquam, vitae praesentium eligendi!',
         category: '',
         size: ['Unique'],
-        gender: 'pet'
+        gender: 'pet',
+        qt: 10
     },
     {
         id: '0019',
@@ -228,7 +246,8 @@ const items = [
         description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, sapiente. Repudiandae officiis esse facilis a rerum mollitia minima repellendus consequatur, sapiente nostrum deserunt, excepturi laudantium. Eum maiores cumque minus provident!',
         category: '',
         size: ['Small', 'Medium', 'Large'],
-        gender: 'pet'
+        gender: 'pet',
+        qt: 10
     },
     {
         id: '0021',
@@ -239,7 +258,8 @@ const items = [
         description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius quam assumenda laudantium accusantium fugit sint dolores ipsa consequatur fuga incidunt, omnis doloremque sit cumque ratione libero at modi id doloribus?',
         category: '',
         size: ['Small', 'Medium', 'Large'],
-        gender: 'pet'
+        gender: 'pet',
+        qt: 10
     },
     {
         id: '0022',
@@ -250,7 +270,8 @@ const items = [
         description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis deserunt, doloribus beatae harum cum quaerat fugiat nobis provident sed. Fugiat eveniet dicta repellendus laboriosam quisquam, facilis beatae facere consectetur autem?',
         category: '',
         size: ['Small', 'Medium'],
-        gender: 'pet'
+        gender: 'pet',
+        qt: 10
     },
     {
         id: '0023',
@@ -261,7 +282,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque soluta necessitatibus magni ea placeat ipsum aliquid reprehenderit assumenda voluptatum voluptas minus eaque id et, dolores provident harum quia eum vitae.',
         category: '',
         size: ['Medium', 'Large'],
-        gender: 'pet'
+        gender: 'pet',
+        qt: 10
     },
     {
         id: '0024',
@@ -272,7 +294,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quos hic quam quas distinctio voluptatibus vel. Doloribus cum labore neque aliquid. Debitis ad totam quae ullam distinctio sint optio saepe!',
         category: 'clothes',
         size: ['Small', 'Medium', 'Large'],
-        gender: 'male'
+        gender: 'male',
+        qt: 10
     },
     {
         id: '0025',
@@ -283,7 +306,8 @@ const items = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum porro ad doloremque commodi voluptate doloribus repellendus laboriosam reprehenderit, quidem deserunt, sunt ullam consequatur ipsam cupiditate eum pariatur officiis atque voluptatum.',
         category: 'clothes',
         size: ['Small', 'Large'],
-        gender: 'male'
+        gender: 'male',
+        qt: 10
     },
 ]
 
