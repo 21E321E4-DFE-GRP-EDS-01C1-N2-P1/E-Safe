@@ -3,7 +3,6 @@ import Home from "../components/Home.vue";
 import Women from "../components/Women/Women.vue";
 import Men from "../components/Men/Men.vue";
 import Pet from "../components/Pet/Pet.vue";
-import Cart from "../components/Cart/Cart.vue";
 
 const routes = [
   {
@@ -25,12 +24,7 @@ const routes = [
     path: "/Pet",
     name: "Pet",
     component: Pet,
-  },
-  {
-    path: "/Cart",
-    name: "Cart",
-    component: Cart,
-  },
+  }
 ];
 
 const router = createRouter({
