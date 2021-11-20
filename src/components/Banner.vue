@@ -1,21 +1,22 @@
 <template>
     <section id="banner-women">
         <div class="position-relative banner">
-            <p class="display-3 position-absolute text-dark top-50 start-50 translate-middle">Women</p>
+            <p class="display-3 position-absolute text-dark top-50 start-50 translate-middle">{{ banner.category }}</p>
             <nav class="position-absolute top-50 start-50 translate-middle mt-5" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Women</li>
+                    <li class="breadcrumb-item"><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ banner.category }}</li>
                 </ol>
             </nav>
-            <img src="../assets/banner-women/banner-w.jpg"  class="w-100 banner-image h-100" alt="banner-w">
+            <img :src="banner.img"  class="w-100 banner-image h-100" alt="banner-w">
         </div>
     </section>
 </template>
 
 <script>
 export default {
-    name: 'Banner'
+    name: 'Banner',
+    props: ['banner']
 }
 </script>
 

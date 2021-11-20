@@ -153,7 +153,7 @@ header {
         transition: .5s ease all;
       }
       .branding-name{
-        font-size: 2rem;
+        font-size: 1.6rem;
         margin-left: 28px;
         margin-bottom: 0;
       }
