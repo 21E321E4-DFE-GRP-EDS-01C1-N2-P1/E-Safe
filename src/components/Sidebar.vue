@@ -4,7 +4,7 @@
             <h6 class="fw-bold m-4 ">{{ type.title }}</h6>
             <nav>
                 <ul v-for="item in type.list" :key="item">
-                    <li class="list-unstyled"><a class="text-decoration-none text-secondary" href="#">{{ item }}</a></li>
+                    <li class="list-unstyled my-5 py-2"><router-link class="text-decoration-none text-secondary list-item" :to="{name: `${item}`}">{{ item }}</router-link></li>
                 </ul>
             </nav>
             <hr class="my-5 mx-4 bg-secondary ">
@@ -20,12 +20,12 @@ export default {
             filters: {
                 categories: {
                     title: 'Product Categories',
-                    list: ['Accessories', 'Bags', 'Shoes', 'Man', 'Woman', 'Pet']
+                    list: ['Men', 'Women', 'Pet']
                 },    
-                size: {
-                    title: 'Size',
-                    list: ['Large', 'Medium', 'Small']
-                }    
+                // size: {
+                //     title: 'Size',
+                //     list: ['Large', 'Medium', 'Small']
+                // }    
             }
         }
     }
@@ -34,6 +34,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+hr {
+    transform: scaleY(0.3);
+}
+.list-item {
+    transition: color 0.3s;
+}
+.list-item:hover {
+    color: black !important;
+}
 @media (max-width: 1140px) {
   #sidebar {
     display: flex;
