@@ -4,8 +4,8 @@ import Checkout from "../components/Checkout.vue";
 import Women from "../components/Women/Women.vue";
 import Men from "../components/Men/Men.vue";
 import Pet from "../components/Pet/Pet.vue";
-import Login from "../components/AccountPages/Login2.vue";
-import Register from "../components/AccountPages/Register.vue";
+// import Login from "../components/AccountPages/Login.vue";
+// import Register from "../components/AccountPages/Register.vue";
 
 const routes = [
   {
@@ -31,12 +31,17 @@ const routes = [
   {
     path: "/Login",
     name: "Login",
-    component: Login,
+    component: () => import('../components/AccountPages/Login.vue'),
   },
   {
     path: "/Register",
     name: "Register",
-    component: Register,
+    component: () => import('../components/AccountPages/Register.vue'),
+  },
+  {
+    path: "/Account",
+    name: "Account",
+    component: () => import('../components/AccountPages/Account.vue'),
   },
   {
     path: "/Checkout",
