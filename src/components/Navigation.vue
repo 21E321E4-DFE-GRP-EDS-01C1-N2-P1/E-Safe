@@ -22,15 +22,15 @@
       </div>
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
-          <li><router-link class="link-account" :to="{name: 'Login'}">&lt; My Account /&gt;</router-link></li>
-          <li class="text-dark link-account" @click="toggleCart">
+          <li @click="toggleMobileNav"><router-link class="link-account" :to="{name: 'Login'}">&lt; My Account /&gt;</router-link></li>
+          <li class="text-dark link-account" @click="toggleCartAndNav">
             <i class="text-dark fa fa-shopping-cart"/> Cart 
               <span class="text-dark badge">{{ sumQt }}</span>
           </li>
-          <li><router-link class="link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
-          <li><router-link class="link" :to="{name: 'Women'}">&lt; Women /&gt;</router-link></li>
-          <li><router-link class="link" :to="{name: 'Men'}">&lt; Men /&gt;</router-link></li>
-          <li><router-link class="link" :to="{name: 'Pet'}">&lt; Pet /&gt;</router-link></li>          
+          <li @click="toggleMobileNav"><router-link class="link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
+          <li @click="toggleMobileNav"><router-link class="link" :to="{name: 'Women'}">&lt; Women /&gt;</router-link></li>
+          <li @click="toggleMobileNav"><router-link class="link" :to="{name: 'Men'}">&lt; Men /&gt;</router-link></li>
+          <li @click="toggleMobileNav"><router-link class="link" :to="{name: 'Pet'}">&lt; Pet /&gt;</router-link></li>          
         </ul>
       </transition>
     </nav>
@@ -136,6 +136,10 @@ export default {
       toggleCart(){
         this.showCart = !this.showCart
         console.log(this.showCart)
+      },
+      toggleCartAndNav(){
+        this.toggleCart()
+        this.toggleMobileNav()
       }
 
   }
@@ -216,7 +220,7 @@ header {
         transition: .5s ease all;
       }
       .branding-name{
-        font-size: 1.6rem;
+        font-size: 2rem;
         margin-left: 28px;
         margin-bottom: 0;
       }
