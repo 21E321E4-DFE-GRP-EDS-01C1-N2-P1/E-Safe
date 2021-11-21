@@ -71,8 +71,8 @@
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSellers.product1.oldPrice }}</span> ${{ bestSellers.product1.price }}</span>
                   <div class="d-block">
-                    <a href="#" class="col-md-3 btn btn-dark me-2">View More</a>
-                    <i class="btn btn-outline-dark col-md-1 bi bi-heart"></i>
+                    <a href="#" class="btn btn-dark px-4 me-2">View More</a>
+                    <i class="btn btn-outline-dark bi bi-heart"></i>
                   </div>
                 </div>
               </div>
@@ -91,8 +91,8 @@
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSellers.product2.oldPrice }}</span>  ${{ bestSellers.product2.price }}</span>
                   <div class="d-block">
-                    <a href="#" class="col-md-3 btn btn-dark me-2">View More</a>
-                    <i class="btn btn-outline-dark col-md-1 bi bi-heart"></i>
+                    <a href="#" class="btn btn-dark px-4 me-2">View More</a>
+                    <i class="btn btn-outline-dark bi bi-heart"></i>
                   </div>
                 </div>
               </div>
@@ -111,8 +111,8 @@
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
                   <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSellers.product3.oldPrice }}</span> ${{ bestSellers.product3.price }}</span>
                   <div class="d-block">
-                    <a href="#" class="col-md-3 btn btn-dark me-2">View More</a>
-                    <i class="btn btn-outline-dark col-md-1 bi bi-heart"></i>
+                    <a href="#" class="btn btn-dark px-4 me-2">View More</a>
+                    <i class="btn btn-outline-dark bi bi-heart"></i>
                   </div>
                 </div>
               </div>

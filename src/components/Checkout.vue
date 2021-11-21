@@ -53,9 +53,10 @@
                 </fieldset>
             </form>
         </div>
-        <div class="w-25 input-group mb-3">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Apply</button>
-            <input type="text" class="form-control" placeholder="Your Coupon" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        <h3 class="text-center mb-4 fw-bold">Your Order</h3>
+        <div class="w-50 input-group mb-3">
+            <button @click="test" class="btn btn-outline-secondary" type="button" id="button-addon1">Apply</button>
+            <input v-model="coupon" type="number" class="form-control" placeholder="Your Coupon">
         </div>
         <div class="w-100 text-center border mx-auto mb-3" >
             <Cart 
@@ -63,6 +64,13 @@
                 :key="productItem.id"
                 :productItem="productItem"
             />
+        </div>
+        <div class="d-flex justify-content-between border ">
+            <p class="fs-5 fw-bold my-auto p-4 mx-4">TOTAL:</p>
+            <p class="fs-4 fw-bold my-auto p-4 mx-4">${{ applyCoupon() }}</p>
+        </div>
+        <div class="text-center p-5">
+            <button class="btn btn-dark btn-cliked fs-5 px-5 rounded-3">Pay whit <span class="text-primary">Pay</span><span class="text-info">Pal</span></button>
         </div>
     </section>
     
@@ -79,8 +87,37 @@ export default {
     },
     data() {
         return {
-            cartProducts: cartProducts
+            cartProducts: cartProducts,
+            coupon: 0,
+            valor: 0,
+            total: 0
         }
+    },
+    methods: {
+        applyCoupon() {
+            this.total = this.sumCart() - this.valor
+            return this.total.toFixed(2)
+        },
+        test() {
+            this.valor = this.coupon
+        },
+        sumCart() {
+            let sum = 0
+            for(let product in this.cartProducts) {
+                console.log(product.qt)
+                    sum += this.cartProducts[product].qt * this.cartProducts[product].price                    
+            }
+            sum = Math.round(sum * 100) / 100
+            return sum.toFixed(2) 
+		},
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.btn-cliked:hover {
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+}
+</style>

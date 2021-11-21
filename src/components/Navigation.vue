@@ -13,7 +13,7 @@
 				<li><router-link class="link-account" :to="{name: 'Account'}"> &lt; My Account /&gt; </router-link></li>
 				<li class="link" @click="toggleCart">
 					<i class="fa fa-shopping-cart"/> Cart 
-						<span class="badge">{{ sumQt }}</span>
+						<span class="badge">{{ sumQt() }}</span>
 				</li>
 
 			</ul>
@@ -25,7 +25,7 @@
 					<li @click="toggleMobileNav"><router-link class="link-account" :to="{name: 'Account'}">&lt; My Account /&gt;</router-link></li>
 					<li class="text-dark link-account" @click="toggleCartAndNav">
 						<i class="text-dark fa fa-shopping-cart"/> Cart 
-							<span class="text-dark badge">{{ sumQt }}</span>
+							<span class="text-dark badge">{{ sumQt() }}</span>
 					</li>
 					<li @click="toggleMobileNav"><router-link class="link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
 					<li @click="toggleMobileNav"><router-link class="link" :to="{name: 'Women'}">&lt; Women /&gt;</router-link></li>
@@ -34,18 +34,19 @@
 				</ul>
 			</transition>
 		</nav>
-		<div class="container v-fade" v-show="showCart">
+		<div class="teste container v-fade" v-show="showCart">
 			<div class="shopping-cart d-flex flex-column ">
 				<div class="shopping-cart-header d-flex justify-content-around">
 					<div>
 						<i class="fa fa-shopping-cart cart-icon"></i>
-						<span class="badge">{{ sumQt }}</span>
+						<span class="badge">{{ sumQt() }}</span>
 					</div>
 					
 					<div class="shopping-cart-total">
 						<span class="lighter-text">Total:</span>
-						<span class="main-color-text">$ {{ sumCart }}</span>
+						<span class="main-color-text">$ {{ sumCart() }}</span>
 					</div>
+					<button type="button" class="btn-close bg-light p-2 " @click="toggleCart"></button>
 				</div>
 				<ul class="shopping-cart-items mt-5 align-self-center">
 					<Cart 
@@ -55,7 +56,8 @@
 					/>
 				</ul>
 
-				<a href="#" class="button">Checkout</a>
+				<!-- <a href="#" class="button">Checkout</a> -->
+				<router-link class="button" :to="{name: 'Checkout'}">Checkout</router-link>
 			</div>
 		</div>
 	</header>
@@ -81,22 +83,7 @@ export default {
 			}
 		},
 		computed: {
-				sumCart() {
-						let sum = 0
-						for(let product in this.cartProducts) {
-							console.log(product.qt)
-								sum += cartProducts[product].qt * cartProducts[product].price                    
-						}
-						return Math.round(sum * 100) / 100
-				},
-				sumQt() {
-						let sum = 0
-						for(let product in this.cartProducts) {
-								sum += cartProducts[product].qt
-										
-						}
-						return sum
-				}
+				
 		},
 
 
@@ -140,7 +127,23 @@ export default {
 			toggleCartAndNav(){
 				this.toggleCart()
 				this.toggleMobileNav()
-			}
+			},
+			sumCart() {
+						let sum = 0
+						for(let product in this.cartProducts) {
+							console.log(product.qt)
+								sum += cartProducts[product].qt * cartProducts[product].price                    
+						}
+						return Math.round(sum * 100) / 100
+				},
+				sumQt() {
+						let sum = 0
+						for(let product in this.cartProducts) {
+								sum += cartProducts[product].qt
+										
+						}
+						return sum
+				}
 
 	}
 };
