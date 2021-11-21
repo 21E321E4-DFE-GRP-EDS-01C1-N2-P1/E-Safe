@@ -12,8 +12,7 @@
         <li><router-link class="link" :to="{name: 'Pet'}">&lt; Pet /&gt;</router-link></li>
         <li><router-link class="link-account" :to="{name: 'Login'}"> &lt; My Account /&gt; </router-link></li>
         <li class="link" @click="toggleCart">
-          <i class="fa fa-shopping-cart"/> Cart 
-            <span class="badge">{{ sumQt }}</span>
+          <i class="fa fa-shopping-cart border btn text-light"/> 
         </li>
 
       </ul>
@@ -23,9 +22,8 @@
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
           <li><router-link class="link-account" :to="{name: 'Login'}">&lt; My Account /&gt;</router-link></li>
-          <li class="text-dark link-account" @click="toggleCart">
-            <i class="text-dark fa fa-shopping-cart"/> Cart 
-              <span class="text-dark badge">{{ sumQt }}</span>
+          <li class=" ms-2 link-account" @click="toggleCart">
+            <i class="fa fa-shopping-cart border-dark text-dark btn text-light"/> 
           </li>
           <li><router-link class="link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
           <li><router-link class="link" :to="{name: 'Women'}">&lt; Women /&gt;</router-link></li>
@@ -39,12 +37,12 @@
         <div class="shopping-cart-header d-flex justify-content-around">
           <div>
             <i class="fa fa-shopping-cart cart-icon"></i>
-            <span class="badge">{{ sumQt }}</span>
+            <span class="badge">{{ sumQt() }}</span>
           </div>
           
           <div class="shopping-cart-total">
             <span class="lighter-text">Total:</span>
-            <span class="main-color-text">$ {{ sumCart }}</span>
+            <span class="main-color-text">$ {{ sumCart().toFixed(2) }}</span>
           </div>
         </div>
         <ul class="shopping-cart-items mt-5 align-self-center">
@@ -77,26 +75,12 @@ export default {
         mobileNav: null,
         windowWidth: null,
         showCart: false,
-        cartProducts: cartProducts,
+        cartProducts: cartProducts
       }
     },
     computed: {
-        sumCart() {
-            let sum = 0
-            for(let product in this.cartProducts) {
-              console.log(product.qt)
-                sum += cartProducts[product].qt * cartProducts[product].price                    
-            }
-            return Math.round(sum * 100) / 100
-        },
-        sumQt() {
-            let sum = 0
-            for(let product in this.cartProducts) {
-                sum += cartProducts[product].qt
-                    
-            }
-            return sum
-        }
+        
+        
     },
 
 
@@ -136,7 +120,18 @@ export default {
       toggleCart(){
         this.showCart = !this.showCart
         console.log(this.showCart)
+      },
+      sumQt() {
+            return this.cartProducts.length
+        },
+      sumCart() {
+          let sum = 0
+          for(let product in this.cartProducts) {
+              sum += cartProducts[product].price                    
+          }
+          return Math.round(sum * 100) / 100
       }
+        
 
   }
 };
@@ -173,6 +168,8 @@ header {
       color: white;
       list-style: none;
       text-decoration: none;
+      margin-bottom: 0 !important;
+      padding: 10px 0;
     }
 
     li {

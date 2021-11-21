@@ -43,7 +43,7 @@ export default {
         return {
             items: items,
             banners: banners,
-            product: Object
+            product: Object,
         }
     }, 
     methods: {
@@ -51,7 +51,8 @@ export default {
             this.product = itemCliked
             console.log(itemCliked)
             return this.product
-        }
+        },
+
     },
     computed: {
         categoryFilter() {

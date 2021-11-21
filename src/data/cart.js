@@ -33,7 +33,7 @@ const cartProducts = [
         category: '',
         size: '',
         gender: 'female',
-        qt: 2
+        qt: 1
     },
 ]
 

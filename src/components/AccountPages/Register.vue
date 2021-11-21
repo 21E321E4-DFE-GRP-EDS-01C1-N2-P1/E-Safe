@@ -70,14 +70,14 @@
 *{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    // box-sizing: border-box;
 }
 body{
     background-color: white;
 }
 .row{
-    background: white;
-    border-radius: 30px;
+    // background: white;
+    // border-radius: 30px;
     // display: flex;
     // // flex-direction: row;
     // justify-content: space-around;
@@ -93,7 +93,7 @@ body{
     padding: 25px;
 }
 img{
-    border-radius: 30px;
+    // border-radius: 30px;
 }
 form{
     padding: 25px;
