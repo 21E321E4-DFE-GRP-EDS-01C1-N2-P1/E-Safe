@@ -1,65 +1,91 @@
 <template>
 	<header :class="{ 'scrolled-nav' : scrolledNav }">
-		<nav>
-			<div class="branding">
-				<img src="@/assets/logo.png" alt="logo">
-				<p class="branding-name">Coding Style</p>
-			</div>
-			<ul v-show="!mobile" class="navigation">
-				<li><router-link class="link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
-				<li><router-link class="link" :to="{name: 'Women'}">&lt; Women /&gt;</router-link></li>
-				<li><router-link class="link" :to="{name: 'Men'}">&lt; Men /&gt;</router-link></li>
-				<li><router-link class="link" :to="{name: 'Pet'}">&lt; Pet /&gt;</router-link></li>
-				<li><router-link class="link-account" :to="{name: 'Account'}"> &lt; My Account /&gt; </router-link></li>
-				<li class="link" @click="toggleCart">
-					<i class="fa fa-shopping-cart"/> Cart 
-						<span class="badge">{{ sumQt() }}</span>
-				</li>
 
-			</ul>
-			<div class="icon">
-				<i @click="toggleMobileNav" v-show="mobile" class="far fa-bars" :class="{'icon-active' : mobileNav}"></i>
-			</div>
-			<transition name="mobile-nav">
-				<ul v-show="mobileNav" class="dropdown-nav">
-					<li @click="toggleMobileNav"><router-link class="link-account" :to="{name: 'Account'}">&lt; My Account /&gt;</router-link></li>
-					<li class="text-dark link-account" @click="toggleCartAndNav">
-						<i class="text-dark fa fa-shopping-cart"/> Cart 
-							<span class="text-dark badge">{{ sumQt() }}</span>
-					</li>
-					<li @click="toggleMobileNav"><router-link class="link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
-					<li @click="toggleMobileNav"><router-link class="link" :to="{name: 'Women'}">&lt; Women /&gt;</router-link></li>
-					<li @click="toggleMobileNav"><router-link class="link" :to="{name: 'Men'}">&lt; Men /&gt;</router-link></li>
-					<li @click="toggleMobileNav"><router-link class="link" :to="{name: 'Pet'}">&lt; Pet /&gt;</router-link></li>          
-				</ul>
-			</transition>
-		</nav>
-		<div class="teste container v-fade" v-show="showCart">
-			<div class="shopping-cart d-flex flex-column ">
-				<div class="shopping-cart-header d-flex justify-content-around">
-					<div>
-						<i class="fa fa-shopping-cart cart-icon"></i>
-						<span class="badge">{{ sumQt() }}</span>
-					</div>
-					
-					<div class="shopping-cart-total">
-						<span class="lighter-text">Total:</span>
-						<span class="main-color-text">$ {{ sumCart() }}</span>
-					</div>
-					<button type="button" class="btn-close bg-light p-2 " @click="toggleCart"></button>
+		<div class="d-flex flex-column">
+			<nav>
+				<div class="branding">
+					<img src="@/assets/logo.png" alt="logo">
+					<p class="branding-name">Coding Style</p>
 				</div>
-				<ul class="shopping-cart-items mt-5 align-self-center">
-					<Cart 
-						v-for="productItem in cartProducts"
-						:key="productItem.id"
-						:productItem="productItem"
-					/>
-				</ul>
+				<ul v-show="!mobile" class="navigation">
+					<li><router-link class="link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
+					<li><router-link class="link" :to="{name: 'Women'}">&lt; Women /&gt;</router-link></li>
+					<li><router-link class="link" :to="{name: 'Men'}">&lt; Men /&gt;</router-link></li>
+					<li><router-link class="link" :to="{name: 'Pet'}">&lt; Pet /&gt;</router-link></li>
+					<li><router-link class="link-account" :to="{name: 'Account'}"> &lt; My Account /&gt; </router-link></li>
+					<li class="link" @click="toggleCart">
+						<i class="fa fa-shopping-cart"/> Cart 
+							<span class="badge">{{ sumQt() }}</span>
 
-				<!-- <a href="#" class="button">Checkout</a> -->
-				<router-link class="button" :to="{name: 'Checkout'}">Checkout</router-link>
+					</li>
+					<li class="link" @click="toggleSearch">
+						<i class="fas fa-search"></i>
+					</li>
+				</ul>
+				<div class="icon">
+					<i @click="toggleMobileNav" v-show="mobile" class="far fa-bars" :class="{'icon-active' : mobileNav}"></i>
+				</div>
+				<transition name="mobile-nav">
+					<ul v-show="mobileNav" class="dropdown-nav">
+						<div class="d-flex flex-column">
+							<li @click="toggleMobileNav"><router-link class="p-2 link-account" :to="{name: 'Account'}">&lt; My Account /&gt;</router-link></li>
+							<li class="p-2 text-dark link-account" @click="toggleCartAndNav">
+								<i class="text-dark fa fa-shopping-cart"/> Cart 
+									<span class="text-dark badge">{{ sumQt() }}</span>
+
+							</li>	
+							<li class="p-2 text-dark">
+								<div class="d-flex">
+									<button type="button" class="btn btn-outline-dark">
+										<i class="fas fa-search"></i>
+									</button>
+									<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+								</div>
+							</li>
+							<li @click="toggleMobileNav"><router-link class="p-2 link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
+							<li @click="toggleMobileNav"><router-link class="p-2 link" :to="{name: 'Women'}">&lt; Women /&gt;</router-link></li>
+							<li @click="toggleMobileNav"><router-link class="p-2 link" :to="{name: 'Men'}">&lt; Men /&gt;</router-link></li>
+							<li @click="toggleMobileNav"><router-link class="p-2 link" :to="{name: 'Pet'}">&lt; Pet /&gt;</router-link></li>
+
+						</div>
+						
+					</ul>
+				</transition>
+			</nav>
+			<div v-show="showSearch" class="w-25 m-5 align-self-center input-group">
+				<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+				<button type="button" class="btn btn-outline-light">
+						<i class="fas fa-search"></i>
+				</button>
+			</div>
+			<div v-show="showCart" class="container v-fade">
+				<div class="shopping-cart d-flex flex-column ">
+					<div class="shopping-cart-header d-flex justify-content-around">
+						<div>
+							<i class="fa fa-shopping-cart cart-icon"></i>
+							<span class="badge">{{ sumQt() }}</span>
+						</div>
+						
+						<div class="shopping-cart-total">
+							<span class="lighter-text">Total:</span>
+							<span class="main-color-text">$ {{ sumCart() }}</span>
+							<button type="button" class="btn-close bg-light p-2 ms-5" @click="toggleCart"></button>
+							
+						</div>
+					</div>
+					<ul class="shopping-cart-items mt-5 align-self-center">
+						<Cart 
+							v-for="productItem in cartProducts"
+							:key="productItem.id"
+							:productItem="productItem"
+						/>
+					</ul>
+
+					<router-link class="button" :to="{name: 'Checkout'}">Checkout</router-link>
+				</div>
 			</div>
 		</div>
+		
 	</header>
 </template>
 
@@ -79,6 +105,7 @@ export default {
 				mobileNav: null,
 				windowWidth: null,
 				showCart: false,
+				showSearch: false,
 				cartProducts: cartProducts,
 			}
 		},
@@ -112,7 +139,7 @@ export default {
 
 			checkScreen(){
 				this.windowWidth = window.innerWidth
-				if(this.windowWidth <= 960){
+				if(this.windowWidth <= 1028){
 					this.mobile = true
 					return
 				}
@@ -122,7 +149,9 @@ export default {
 			},
 			toggleCart(){
 				this.showCart = !this.showCart
-				console.log(this.showCart)
+			},
+			toggleSearch(){
+				this.showSearch = !this.showSearch
 			},
 			toggleCartAndNav(){
 				this.toggleCart()
@@ -132,7 +161,7 @@ export default {
 						let sum = 0
 						for(let product in this.cartProducts) {
 							console.log(product.qt)
-								sum += cartProducts[product].qt * cartProducts[product].price                    
+								sum += cartProducts[product].price                    
 						}
 						return Math.round(sum * 100) / 100
 				},
@@ -310,6 +339,10 @@ header {
 			}
 		}
 	}
+}
+.form-control:focus {
+  border-color: #08afea;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(8, 175, 234, 1);
 }
 .lighter-text {
 	color: #ABB0BE;
