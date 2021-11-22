@@ -16,8 +16,8 @@
                     <div class="col-md-4">
                         <h5 class="text-light fw-bold">Institutional</h5>
                         <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Contact Us</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Privacy Policy</a></li>
+                        <li class="nav-item mb-2"><a href="ContactUs" class="nav-link p-0 text-light">Contact Us</a></li>
+                        <li class="nav-item mb-2"><a href="Policy" class="nav-link p-0 text-light">Privacy Policy</a></li>
                         <li class="nav-item mb-2"><router-link class="nav-link p-0 text-light" :to="{name: 'Account'}">My Account</router-link></li>
                         </ul>
                     </div>

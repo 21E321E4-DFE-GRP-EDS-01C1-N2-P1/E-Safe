@@ -77,6 +77,9 @@
 </template>
 
 <script>
+import { onBeforeMount } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import firebase from 'firebase'
 import Cart from './Cart.vue'
 import cartProducts from '../data/cart.js'
 import myCoupons from '../data/coupon.js'
@@ -86,6 +89,21 @@ export default {
     name: 'Checkout',
     components: {
           Cart
+    },
+    setup(){
+        const router = useRouter()
+		const route = useRoute()
+		
+		onBeforeMount(() => {		
+			firebase.auth().onAuthStateChanged((user) => {
+				if(!user){
+					router.replace('/Login')
+				} else if (route.path == '/Login' || route.path == '/Register'){
+					router.replace('/Checkout')
+				} 
+			})
+
+		})
     },
     data() {
         return {

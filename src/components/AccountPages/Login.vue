@@ -32,7 +32,7 @@
 								<button @click="Login" type="button" class="btn1 mt-3 mb-5">Login</button>
 							</div>
 						</div>
-						<span href="#">Forgot Password</span>
+						<a href="Forgot">Forgot Password</a>
 						<p>Don't have an account? <a href="Register">Register Here</a></p>
 					</form>            
 				</div>
