@@ -4,10 +4,10 @@
 			<div class="shadow row main-div d-flex justify-content-center">
 				<div class="image-align-self col-lg-5">
 					<div class="branding mb-5">
-						<img src="@/assets/logo.png" alt="logo">
+						<img src="@/assets/logo.png" alt="Round logo with greater than, slash and less than, centered." title="Logo">
 						<p class="branding-name">Coding Style</p>
 					</div>
-					<img src="../../assets/Deal-of-the-day.jpg" class="img-fluid"  alt="Login Cover">
+					<img src="../../assets/Deal-of-the-day.jpg" class="img-fluid"  alt="Image of a stylish man sitting beside his suitcase" title="Banner stylish man">
 				</div>
 				<div class="col-lg-7 ">
 					<form>
@@ -85,14 +85,7 @@ export default {
 body{
     background-color: white;
 }
-.row{
-    // background: white;
-    // border-radius: 30px;
-    // display: flex;
-    // // flex-direction: row;
-    // justify-content: space-around;
-    // align-items: center;
-}
+
 .padding-top{
 	padding-top: 120px;
 }
@@ -100,9 +93,7 @@ body{
 	align-self: center;
 	padding: 25px;
 }
-img{
-    // border-radius: 30px;
-}
+
 form{
 	padding: 25px;
 }

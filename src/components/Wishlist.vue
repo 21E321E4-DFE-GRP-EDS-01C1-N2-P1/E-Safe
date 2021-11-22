@@ -12,13 +12,13 @@
                             v-for="(item, index) in myWishlist" :key="item">
                             <div class="row g-0">
                                 <div class="col-md-4 d-flex">
-                                    <img :src="item.img" class="img-fluid rounded-start adjust-image" alt="img-product">
+                                    <img :src="item.img" class="img-fluid rounded-start adjust-image" :alt="product.description" :title="product.name">
                                 </div>
                                 <div class="col-md-8 d-flex">
                                     <div class="card-body">
                                         <h5 class="card-title fw-bold">{{ item.name }}</h5>
                                         <p class="card-text fw-bold text-muted">${{ item.price }}</p>
-                                        <button type="button" class="d-flex btn btn-outline-dark add-cart rounded-3">
+                                        <button @click="addCart(item)" type="button" class="d-flex btn btn-outline-dark add-cart rounded-3">
                                             <span class="fs-6"><i class="bi bi-cart"></i></span>
                                         </button>
                                     </div>
@@ -55,6 +55,12 @@ export default {
     methods: {
         remove(index) {
             myWishlist.splice(index, 1)
+            alert("REMOVED TO WISHLIST!")
+
+        },
+        addCart(item) {
+            cartProducts.push(item)
+            alert("ADDED TO CART!")
         }
     }
 }

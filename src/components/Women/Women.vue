@@ -15,12 +15,12 @@
                     v-for="product in categoryFilter"
                     :key="product.id"
                     :product="product"
-                    @click="showDetails(product)"/>3-***-9*
+                    @click="showDetails(product)"/>
             </div>
         </section>
     </div>
     <Modal
-        :product="showDetails(product)"/>
+        :product="product"/>
 </template>
 
 <script>

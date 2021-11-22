@@ -4,8 +4,8 @@
 		<div class="d-flex flex-column">
 			<nav>
 				<div class="branding">
-					<img src="@/assets/logo.png" alt="logo">
-					<p class="branding-name">Coding Style</p>
+					<router-link :to="{name: 'Home'}"><img src="@/assets/logo.png"  alt="Round logo with greater than, slash and less than, centered." title="Logo"></router-link>
+					<router-link class="branding-name text-decoration-none text-light" :to="{name: 'Home'}">Coding Style</router-link>
 				</div>
 				<ul v-show="!mobile" class="navigation">
 					<li><router-link class="link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
@@ -67,7 +67,7 @@
 						<div class="shopping-cart-total">
 							<span class="lighter-text">Total:</span>
 							<span class="main-color-text">$ {{ sumCart() }}</span>
-							<span type="button" class="btn-close bg-light p-2 ms-5" @click="toggleCart"></span>
+							<span type="button" class="btn-close bg-light px-3 ms-5" @click="toggleCart"></span>
 							
 						</div>
 					</div>
@@ -79,7 +79,14 @@
 						/>
 					</ul>
 
-					<router-link class="button" :to="{name: 'Checkout'}">Checkout</router-link>
+					<div v-if="cartProducts.length > 0">
+						<router-link @click="toggleCart" class="button" :to="{name: 'Checkout'}">Checkout</router-link>
+					</div>
+					<div v-else class="mx-auto">
+						<p class="text-center">Empty Cart</p>
+						<button @click="toggleCart" class="button border-0">Continue Shopping</button>
+					</div>
+
 				</div>
 			</div>
 		</div>
@@ -107,11 +114,6 @@ export default {
 				cartProducts: cartProducts,
 			}
 		},
-		computed: {
-				
-		},
-
-
 		created() {
 			window.addEventListener('resize', this.checkScreen)
 			this.checkScreen()
@@ -156,21 +158,15 @@ export default {
 				this.toggleMobileNav()
 			},
 			sumCart() {
-						let sum = 0
-						for(let product in this.cartProducts) {
-							console.log(product.qt)
-								sum += cartProducts[product].price                    
-						}
-						return Math.round(sum * 100) / 100
-				},
-				sumQt() {
-						// let sum = 0
-						// for(let product in this.cartProducts) {
-						// 		sum += cartProducts[product].qt - 9
-										
-						// }
-						return this.cartProducts.length
+				let sum = 0
+				for(let product in this.cartProducts) {
+					sum += cartProducts[product].price                    
 				}
+				return Math.round(sum * 100) / 100
+			},
+			sumQt() {
+				return this.cartProducts.length
+			}
 
 	}
 };

@@ -119,7 +119,6 @@ export default {
 				.createUserWithEmailAndPassword(state.inputEmail, state.inputPassword)
 				.then(user => {
 					alert(user)
-					// window.location.replace('/Checkout')
 					router.push({name: 'Account'})
 				})
 				.catch(err => alert(err.message))

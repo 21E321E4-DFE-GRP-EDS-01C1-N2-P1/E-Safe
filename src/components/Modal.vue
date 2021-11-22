@@ -11,10 +11,10 @@
                         <div id="carouselExampleInterval" class="carousel carousel-dark slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active" data-bs-interval="10000">
-                                    <img :src="product.img" class="d-block w-100" alt="...">
+                                    <img :src="product.img" class="d-block w-100" :alt="product.description" :title="product.name">
                                 </div>
                                 <div class="carousel-item" data-bs-interval="2000">
-                                    <img :src="product.img" class="d-block w-100" alt="...">
+                                    <img :src="product.img" class="d-block w-100" :alt="product.description" :title="product.name">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -34,8 +34,8 @@
                             <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal mx-2">${{ product.oldPrice }}</span> ${{ product.price }}</span>
                         </div>
                         <div class="d-flex justify-content-center py-4">
-                            <select class="form-select form-select-sm w-25" aria-label=".form-select-sm example">
-                                <option selected>Size</option>
+                            <label for="select-size" class="me-3">Size</label>
+                            <select id="select-size" v-model="choseSize" class="form-select form-select-sm w-25" aria-label=".form-select-sm example">
                                 <option v-for="size in product.size" :key="size" :value="size">{{ size }}</option>
                             </select>
                         </div>
@@ -48,11 +48,11 @@
                                     <span @click="add()" class="btn btn-outline-dark py-1 px-3 fs-3" type="button" id="button-addon2">+</span>
                                 </div>
                             </div>
-                            <span type="button" class="d-flex my-4 mx-2 bg-dark text-light add-cart border-0 item-spacing">
+                            <span @click="addCart(product)" type="button" class="d-flex my-4 mx-2 bg-dark text-light add-cart border-0 item-spacing">
                                 <span class="ps-4 me-3 my-auto fs-5"><i class="bi bi-cart text-light"></i></span>
                                 <p class="pe-4 my-auto fs-5">Add to cart</p>
                             </span>
-                            <span type="button" class="btn btn-outline-dark rounded-0 mx-2 my-4 item-spacing">
+                            <span @click="addWishlist(product)" type="button" class="btn btn-outline-dark rounded-0 mx-2 my-4 item-spacing">
                                 <span class="my-auto fs-5"><i class="bi bi-heart fs-4"></i></span>
                             </span>
                         </div>
@@ -71,12 +71,18 @@
 </template>
 
 <script>
+import cartProducts from '../data/cart.js'
+import myWishlist from '../data/wishlist.js'
+
 export default {
     name: 'Modal',
     props: ['product'],
     data() {
         return {
-            counter: 1
+            counter: 1,
+            cartProducts: cartProducts,
+            myWishlist: myWishlist,
+            choseSize: ''
         }
     },
     methods: {
@@ -92,10 +98,21 @@ export default {
         },
         adjustDecimal() {
             return this.product.price.toFixed(2)
+        },
+        addCart(item) {
+            if(this.choseSize != '') {
+                cartProducts.push(item)
+                alert("ADDED TO CART!")
+            }
+            else 
+                alert("SELECT A SIZE!")
+
+        },
+        addWishlist(item) {
+            myWishlist.push(item)
+            alert("ADDED TO WISHLIST!")
         }
     },
-    computed: {
-    }
 }
 </script>
 

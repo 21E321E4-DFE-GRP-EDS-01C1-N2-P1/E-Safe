@@ -137,12 +137,6 @@ export default {
 				.catch(err => alert(err.message))
 		}
 
-		// const saveEmail = () =>{
-		//     firebase.auth().onAuthStateChanged((user) => {
-		//         this.email = user.email;
-		//     })
-		// }
-
 		return{
 			Logout,
 			users,

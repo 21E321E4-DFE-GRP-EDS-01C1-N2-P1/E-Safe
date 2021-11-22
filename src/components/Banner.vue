@@ -8,7 +8,7 @@
                     <li class="breadcrumb-item active" aria-current="page">{{ banner.category }}</li>
                 </ol>
             </nav>
-            <img :src="banner.img"  class="w-100 banner-image h-100" alt="banner-w">
+            <img :src="banner.img"  class="w-100 banner-image h-100" :alt="banner.alt" :title="banner.title">
         </div>
     </section>
 </template>

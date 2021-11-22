@@ -1,11 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../components/Home.vue";
+import NotFound from "../components/NotFound.vue";
 import Checkout from "../components/Checkout.vue";
 import Women from "../components/Women/Women.vue";
 import Men from "../components/Men/Men.vue";
 import Pet from "../components/Pet/Pet.vue";
-// import Login from "../components/AccountPages/Login.vue";
-// import Register from "../components/AccountPages/Register.vue";
 
 const routes = [
   {
@@ -48,6 +47,11 @@ const routes = [
     name: "Checkout",
     component: Checkout,
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name: "NotFound",
+    component: NotFound 
+  }
 ];
 
 const router = createRouter({

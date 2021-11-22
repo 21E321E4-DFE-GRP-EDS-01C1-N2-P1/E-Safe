@@ -17,7 +17,7 @@
                             <div class="accordion-collapse collapse show">
                                 <div class="accordion-body">
                                     <div class="d-flex justify-content-between border align-items-center mb-2 items-purchase" v-for="item in order.purchase" :key="item">
-                                        <img class="col-md-2" :src="item.img" style="max-width: 150px;" alt="">
+                                        <img class="col-md-2" :src="item.img" style="max-width: 150px;" :alt="item.description" :title="item.name">
                                         <p class="fw-bold">{{ item.name }}</p>
                                         <p class="">{{ order.date }}</p>
                                         <p class="me-4 text-muted fw-bold">${{ item.price }}</p>

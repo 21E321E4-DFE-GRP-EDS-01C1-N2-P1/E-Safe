@@ -1,6 +1,6 @@
 <template>
 		<li class="clearfix list-unstyled p-2">
-			<img class="img-config img-fluid img-thumbnail" :src="productItem.img" :alt="productItem.name" />
+			<img class="img-config img-fluid img-thumbnail" :src="productItem.img" :alt="productItem.description" :title="productItem.name"/>
 			<span class="item-name p-3">{{ productItem.name }}</span>
 			<span class="item-price p-3">${{ productItem.price.toFixed(2) }}</span>
 			<span class="item-quantity">Quantity: {{ 1 }}</span>

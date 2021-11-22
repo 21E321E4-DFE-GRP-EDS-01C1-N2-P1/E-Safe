@@ -1,7 +1,7 @@
 <template>
     <!-- <div id="openAlert" class="position-sticky teste w-100"></div>       -->
-    <div class="row col-md-4 col-sm-6 my-5 mx-auto justify-content-evenly position-relative box-product" > 
-        <img :src="product.img" class="product-img" alt="p-04" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <div class="row col-md-4 col-sm-6 my-5 mx-auto justify-content-evenly position-relative box-product" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
+        <img :src="product.img" class="product-img" :alt="product.description" :title="product.name">
         <p class="text-center my-3">{{ product.name }}</p>
         <div class="d-flex justify-content-center">
             <span class="fs-6 text-muted text-decoration-line-through fw-normal mx-1">${{ product.oldPrice.toFixed(2) }}</span>
@@ -9,7 +9,7 @@
         </div>
         <div class="d-flex position-absolute box-icons justify-content-evenly w-100">
             <span  @click="addWishlist(product)" class="rounded-circle bg-dark size-circle btn"><i class="bi bi-heart text-light fs-4"></i></span>
-            <span @click="addCart(product)" class="rounded-circle bg-dark size-circle btn"><i class="bi bi-cart text-light fs-4"></i></span>
+            <span class="rounded-circle bg-dark size-circle btn"><i class="bi bi-cart text-light fs-4"></i></span>
         </div>
     </div>
 </template>
@@ -29,20 +29,13 @@ export default {
         }
     },  
     methods: {
-        addCart(item) {
-            cartProducts.push(item)
-            // var alertPlaceholder = document.getElementById('openAlert')
-            // var wrapper = document.createElement('div')
-            // wrapper.innerHTML = `
-            //     <div class="alert alert-success alert-dismissible" role="alert">
-            //         <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-            //         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            //     </div>`
-            // alertPlaceholder.append(wrapper)
-        },
+        // addCart(item) {
+        //     cartProducts.push(item)
+        //     alert("ADDED TO CART!")
+        // },
         addWishlist(item) {
             myWishlist.push(item)
-            console.log(this.myWishlist)
+            alert("ADDED TO WISHLIST!")
         }
     }
 }

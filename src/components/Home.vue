@@ -1,6 +1,6 @@
 <template>
   <section id="main-banner">
-    <h1>Home</h1>
+    <h1 class="d-none">Home</h1>
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -10,7 +10,7 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img v-bind:src="banners.slide1.image" class="d-block w-100 image-carousel" alt="slide 1">
+          <img v-bind:src="banners.slide1.image" class="d-block w-100 image-carousel" :alt="banners.slide1.alt" :title="banners.slide1.text">
           <div class="position-absolute top-50 start-50 translate-middle">
             <p class="text-center text-uppercase fs-1">{{ banners.slide1.text }}</p>
             <div class="d-flex justify-content-evenly">
@@ -21,21 +21,22 @@
         </div>
 
         <div class="carousel-item">
-          <img v-bind:src="banners.slide2.image" class="d-block w-100 image-carousel" alt="slide 2">
+          <img v-bind:src="banners.slide2.image" class="d-block w-100 image-carousel" :alt="banners.slide2.alt" :title="banners.slide2.text">
           <div class="position-absolute time-now translate-middle">
             <p class="text-center text-uppercase fs-1">{{ banners.slide2.text }}</p>
             <div class="d-flex justify-content-center">
-              <button class="btn btn-outline-dark ">{{ banners.slide2.btnText1 }}</button>
+              <router-link class="btn btn-outline-dark btn-sm" :to="{name: 'Men'}">{{ banners.slide2.btnText1 }}</router-link>
             </div>
           </div>
         </div>
 
         <div class="carousel-item">
-          <img v-bind:src="banners.slide3.image" class="d-block w-100 image-carousel" alt="slide 3">
+          <img v-bind:src="banners.slide3.image" class="d-block w-100 image-carousel" :alt="banners.slide3.alt" :title="banners.slide3.text">
           <div class="position-absolute top-50 start-50 translate-middle">
             <p class="text-center text-uppercase fs-1">{{ banners.slide3.text }}</p>
             <div class="d-flex justify-content-center">
-              <button class="btn btn-outline-dark btn-sm">{{ banners.slide3.btnText1 }}</button>
+              <router-link class="btn btn-outline-dark btn-sm" :to="{name: 'Women'}">{{ banners.slide2.btnText1 }}</router-link>
+
             </div>
           </div>
         </div>
@@ -62,18 +63,18 @@
             <div class="carousel-item active">
               <div class="best-product d-flex resize-width-80">
                 <div class="col-md-5 position-relative">
-                  <img v-bind:src="bestSellers.product1.image" class="resize-main-slide" alt="product 01">
-                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">{{ bestSellers.product1.tag }}</span>
+                  <img v-bind:src="bestSeller[0].img" class="resize-main-slide" :alt="bestSeller[0].description" :title="bestSeller[0].name">
+                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">NEW</span>
                 </div>
                 <div class="col-md-7 row align-items-center m-5 text-center">
-                  <h5 class="fs-4">{{ bestSellers.product1.title }}</h5>
+                  <h5 class="fs-4">{{ bestSeller[0].name }}</h5>
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
-                  <p class="hide-component text-muted px-5">{{ bestSellers.product1.text }}</p>
+                  <p class="hide-component text-muted px-5">{{ bestSeller[0].description }}</p>
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
-                  <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSellers.product1.oldPrice }}</span> ${{ bestSellers.product1.price }}</span>
+                  <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSeller[0].oldPrice }}</span> ${{ bestSeller[0].price }}</span>
                   <div class="d-block">
-                    <a href="#" class="btn btn-dark px-4 me-2">View More</a>
-                    <i class="btn btn-outline-dark bi bi-heart"></i>
+                    <button class="btn btn-dark px-4 me-2" @click="showDetails(bestSeller[0])" data-bs-toggle="modal" data-bs-target="#exampleModal">View More</button>
+                    <i @click="addWishlist(bestSeller[0])" class="btn btn-outline-dark bi bi-heart"></i>
                   </div>
                 </div>
               </div>
@@ -82,18 +83,18 @@
             <div class="carousel-item">
               <div class="best-product d-flex resize-width-80 text-center">
                 <div class="col-md-5 position-relative">
-                  <img v-bind:src="bestSellers.product2.image" class="resize-main-slide" alt="product 02">
-                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">{{ bestSellers.product2.tag }}</span>
+                  <img v-bind:src="bestSeller[1].img" class="resize-main-slide" :alt="bestSeller[1].description" :title="bestSeller[1].name">
+                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">NEW</span>
                 </div>
                 <div class="col-md-7 row align-items-center m-5">
-                  <h5 class="fs-4">{{ bestSellers.product2.title }}</h5>
+                  <h5 class="fs-4">{{ bestSeller[1].name }}</h5>
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
-                  <p class="hide-component text-muted px-5">{{ bestSellers.product2.text }}</p>
+                  <p class="hide-component text-muted px-5">{{ bestSeller[1].description }}</p>
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
-                  <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSellers.product2.oldPrice }}</span>  ${{ bestSellers.product2.price }}</span>
+                  <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSeller[1].oldPrice }}</span>  ${{ bestSeller[1].price }}</span>
                   <div class="d-block">
-                    <a href="#" class="btn btn-dark px-4 me-2">View More</a>
-                    <i class="btn btn-outline-dark bi bi-heart"></i>
+                    <button class="btn btn-dark px-4 me-2" @click="showDetails(bestSeller[1])" data-bs-toggle="modal" data-bs-target="#exampleModal">View More</button>
+                    <i @click="addWishlist(bestSeller[1])" class="btn btn-outline-dark bi bi-heart"></i>
                   </div>
                 </div>
               </div>
@@ -102,18 +103,18 @@
             <div class="carousel-item">
               <div class="best-product d-flex resize-width-80 text-center">
                 <div class="col-md-5 position-relative">
-                  <img v-bind:src="bestSellers.product3.image" class="resize-main-slide" alt="product 03">
-                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">{{ bestSellers.product3.tag }}</span>
+                  <img v-bind:src="bestSeller[2].img" class="resize-main-slide" :alt="bestSeller[2].description" :title="bestSeller[2].name">
+                  <span class="text-uppercase position-absolute top-0 start-0 bg-info bg-gradient text-light py-1 px-2 mt-4">NEW</span>
                 </div>
                 <div class="col-md-7 row align-items-center m-5">
-                  <h5 class="fs-4">{{ bestSellers.product3.title }}</h5>
+                  <h5 class="fs-4">{{ bestSeller[2].name }}</h5>
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
-                  <p class="hide-component text-muted px-5">{{ bestSellers.product3.text }}</p>
+                  <p class="hide-component text-muted px-5">{{ bestSeller[2].description }}</p>
                   <span class="hide-component bg-dark w-25 mx-auto minimal-line"></span>
-                  <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSellers.product3.oldPrice }}</span> ${{ bestSellers.product3.price }}</span>
+                  <span class="fw-bold fs-5 my-3"><span class="fs-6 text-muted text-decoration-line-through fw-normal">${{ bestSeller[2].oldPrice }}</span> ${{ bestSeller[2].price }}</span>
                   <div class="d-block">
-                    <a href="#" class="btn btn-dark px-4 me-2">View More</a>
-                    <i class="btn btn-outline-dark bi bi-heart"></i>
+                    <button class="btn btn-dark px-4 me-2" @click="showDetails(bestSeller[2])" data-bs-toggle="modal" data-bs-target="#exampleModal">View More</button>
+                    <i @click="addWishlist(bestSeller[2])" class="btn btn-outline-dark bi bi-heart"></i>
                   </div>
                 </div>
               </div>
@@ -140,45 +141,45 @@
       <div class="d-flex w-100 bg-light image-container radius-bottom ">
         <div class="d-flex container mx-auto align-items-center">
           <div class="overflow-hidden position-relative resize-main-div">
-            <a href="#" class="text-center">
+            <router-link class="text-center" :to="{name: 'Women'}">
               <p class="text-light fs-1 position-absolute top-50 start-50 translate-middle text-front">{{ womanStyle.mainCategoty.text }}</p>  
               <p class="text-light fs-5 mt-5 pt-5 text-decoration-underline position-absolute top-50 start-50 translate-middle" style="z-index: 100;">{{ womanStyle.mainCategoty.link }}</p>  
-              <img v-bind:src="womanStyle.mainCategoty.image" alt="w1" class="zoom resize-main-slide">
-            </a>
+              <img v-bind:src="womanStyle.mainCategoty.image" :alt="womanStyle.mainCategoty.text" :title="womanStyle.mainCategoty.text" class="zoom resize-main-slide">  
+            </router-link>
           </div>
-          <div class="" >
+          <div>
             <div class="d-flex container resize-height">
               <div class="m-1 overflow-hidden resize-height-50 position-relative">
-                <a href="#">
+                <router-link :to="{name: 'Women'}">
                   <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ womanStyle.category1.text }}</p>
-                  <img v-bind:src="womanStyle.category1.image" alt="w2" class="zoom resize-main-slide">
-                </a>
+                  <img v-bind:src="womanStyle.category1.image" :alt="womanStyle.category1.text" :title="womanStyle.category1.text" class="zoom resize-main-slide">
+                </router-link>
               </div>
               <div class="m-1 overflow-hidden resize-height-50 position-relative">
-                <a href="#">
+                <router-link :to="{name: 'Women'}">
                   <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ womanStyle.category2.text }}</p>
-                  <img v-bind:src="womanStyle.category2.image" alt="w3" class="zoom resize-main-slide">
-                </a>
+                  <img v-bind:src="womanStyle.category2.image" :alt="womanStyle.category2.text" :title="womanStyle.category2.text" class="zoom resize-main-slide">
+                </router-link>
               </div>
             </div>
             <div class="d-flex container resize-height">
               <div class="m-1 overflow-hidden resize-height-33 position-relative">
-                <a href="#">
+                <router-link :to="{name: 'Women'}">
                   <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ womanStyle.category3.text }}</p>
-                  <img v-bind:src="womanStyle.category3.image" alt="w4" class="zoom resize-main-slide">
-                </a>
+                  <img v-bind:src="womanStyle.category3.image" :alt="womanStyle.category3.text" :title="womanStyle.category3.text" class="zoom resize-main-slide">
+                </router-link>
               </div>
               <div class="m-1 overflow-hidden resize-height-33 position-relative">
-                <a href="#">
+                <router-link :to="{name: 'Women'}">
                   <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ womanStyle.category4.text }}</p>
-                  <img v-bind:src="womanStyle.category4.image" alt="w5" class="zoom resize-main-slide">
-                </a>
+                  <img v-bind:src="womanStyle.category4.image" :alt="womanStyle.category4.text" :title="womanStyle.category4.text" class="zoom resize-main-slide">
+                </router-link>
               </div>
               <div class="m-1 overflow-hidden resize-height-33 position-relative">
-                <a href="#">
+                <router-link :to="{name: 'Women'}">
                   <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ womanStyle.category5.text }}</p>
-                  <img v-bind:src="womanStyle.category5.image" alt="w6" class="zoom resize-main-slide">
-                </a>
+                  <img v-bind:src="womanStyle.category5.image" :alt="womanStyle.category5.text" :title="womanStyle.category5.text" class="zoom resize-main-slide">
+                </router-link>
               </div>
             </div>
           </div>
@@ -196,45 +197,45 @@
           <div class="" >
             <div class="d-flex container resize-height">
               <div class="m-1 overflow-hidden resize-height-50 position-relative">
-                <a href="#">
+                <router-link :to="{name: 'Men'}">
                   <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ manStyle.category1.text }}</p>
-                  <img v-bind:src="manStyle.category1.image" alt="w2" class="zoom resize-main-slide">
-                </a>
+                  <img v-bind:src="manStyle.category1.image" :alt="manStyle.category1.text" :title="manStyle.category1.text" class="zoom resize-main-slide">
+                </router-link>
               </div>
               <div class="m-1 overflow-hidden resize-height-50 position-relative">
-                <a href="#">
+                <router-link :to="{name: 'Men'}">
                   <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ manStyle.category2.text }}</p>
-                  <img v-bind:src="manStyle.category2.image" alt="w3" class="zoom resize-main-slide">
-                </a>
+                  <img v-bind:src="manStyle.category2.image" :alt="manStyle.category2.text" :title="manStyle.category2.text" class="zoom resize-main-slide">
+                </router-link>
               </div>
             </div>
             <div class="d-flex container resize-height">
               <div class="m-1 overflow-hidden resize-height-33 position-relative">
-                <a href="#">
+                <router-link :to="{name: 'Men'}">
                   <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ manStyle.category3.text }}</p>
-                  <img v-bind:src="manStyle.category3.image" alt="w4" class="zoom resize-main-slide">
-                </a>
+                  <img v-bind:src="manStyle.category3.image" :alt="manStyle.category3.text" :title="manStyle.category3.text" class="zoom resize-main-slide">
+                </router-link>
               </div>
               <div class="m-1 overflow-hidden resize-height-33 position-relative">
-                <a href="#">
+                <router-link :to="{name: 'Men'}">
                   <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ manStyle.category4.text }}</p>
-                  <img v-bind:src="manStyle.category4.image" alt="w5" class="zoom resize-main-slide">
-                </a>
+                  <img v-bind:src="manStyle.category4.image" :alt="manStyle.category4.text" :title="manStyle.category4.text" class="zoom resize-main-slide">
+                </router-link>
               </div>
               <div class="m-1 overflow-hidden resize-height-33 position-relative">
-                <a href="#">
+                <router-link :to="{name: 'Men'}">
                   <p class="text-dark fs-5 position-absolute top-100 start-50 pb-5 translate-middle text-front">{{ manStyle.category5.text }}</p>
-                  <img v-bind:src="manStyle.category5.image" alt="w6" class="zoom resize-main-slide">
-                </a>
+                  <img v-bind:src="manStyle.category5.image" :alt="manStyle.category5.text" :title="manStyle.category5.text" class="zoom resize-main-slide">
+                </router-link>
               </div>
             </div>
           </div>
           <div class="overflow-hidden position-relative resize-main-div">
-            <a href="#" class="text-center">
+            <router-link class="text-center" :to="{name: 'Men'}">
               <p class="text-light fs-1 position-absolute top-50 start-50 translate-middle text-front">{{ manStyle.mainCategoty.text }}</p>  
               <p class="text-light fs-5 mt-5 pt-5 text-decoration-underline position-absolute top-50 start-50 translate-middle" style="z-index: 100;">{{ manStyle.mainCategoty.link }}</p>  
-              <img v-bind:src="manStyle.mainCategoty.image" alt="w1" class="zoom resize-main-slide">
-            </a>
+              <img v-bind:src="manStyle.mainCategoty.image" :alt="manStyle.mainCategoty.text" :title="manStyle.mainCategoty.text" class="zoom resize-main-slide">
+            </router-link>
           </div>
         </div>
       </div>
@@ -248,78 +249,66 @@
       <div class="d-flex w-100 bg-light image-container radius-bottom ">
         <div class="d-flex container mx-auto align-items-center">
           <div class="m-1 overflow-hidden position-relative">
-            <a href="#">
+            <router-link class="text-center" :to="{name: 'Pet'}">
               <p class="text-dark fs-5 text-decoration-underline position-absolute top-0 start-50 pt-5 translate-middle text-front">{{ petStyle.category1.text }}</p>
-              <img v-bind:src="petStyle.category1.image" alt="w2" class="zoom resize-main-slide">
-            </a>
+              <img v-bind:src="petStyle.category1.image" :alt="petStyle.category1.text" :title="petStyle.category1.text" class="zoom resize-main-slide">
+            </router-link>
           </div>
           <div class="m-1 overflow-hidden position-relative">
-            <a href="#">
+            <router-link class="text-center" :to="{name: 'Pet'}">
               <p class="text-dark fs-5 text-decoration-underline position-absolute top-0 start-50 pt-5 translate-middle text-front">{{ petStyle.category2.text }}</p>
-              <img v-bind:src="petStyle.category2.image" alt="w2" class="zoom resize-main-slide">
-            </a>
+              <img v-bind:src="petStyle.category2.image" :alt="petStyle.category2.text" :title="petStyle.category2.text" class="zoom resize-main-slide">
+            </router-link>
           </div>
           <div class="m-1 overflow-hidden position-relative">
-            <a href="#">
+            <router-link class="text-center" :to="{name: 'Pet'}">
               <p class="text-dark fs-5 text-decoration-underline position-absolute top-0 start-50 pt-5 translate-middle text-front">{{ petStyle.category3.text }}</p>
-              <img v-bind:src="petStyle.category3.image" alt="w2" class="zoom resize-main-slide">
-            </a>
+              <img v-bind:src="petStyle.category3.image" :alt="petStyle.category3.text" :title="petStyle.category3.text" class="zoom resize-main-slide">
+            </router-link>
           </div>
         </div>
       </div>
     </div>
+    <Modal
+      :product="product"/>
   </section>
 </template>
 
 <script>
+import bestSeller from '../data/bestSellers.js'
+import Modal from './Modal.vue'
+import myWishlist from '../data/wishlist.js'
+
 export default {
   name: 'Home',
+  components: {
+      Modal
+  },
   data: function() {
     return {
+      bestSeller: bestSeller,
+      myWishlist: myWishlist,
+      product: Object,
       banners: 
         {
           slide1: { 
             image: require("../assets/S1.jpg"), 
             text: "Code Your Onw Style",
+            alt: "Image of a stylish man and woman",
             btnText1: "Woman Collection",
             btnText2: "Man Collection"
           },
           slide2: { 
             image: require("../assets/S2.jpg"), 
+            alt: "Image of a clock holder with three exposed clocks",
             text: "The Time is Now",
             btnText1: "Discover"  
           },
           slide3: { 
             image: require("../assets/S3.jpg"), 
+            alt: "Image of a stylish woman from the back in a white dress",
             text: "ss '22 Collection",
             btnText1: "Shop Now"
-          }
-        },
-      bestSellers: 
-        {
-          product1: {
-            title: "Roll Top Backpack",
-            image: require("../assets/products/product_01.jpg"), 
-            text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, nulla. Aspernatur possimus provident mollitia perferendis veritatis perspiciatis repellat, necessitatibus, amet inventore illo blanditiis aperiam tempora soluta dolorum eum accusamus sunt.",
-            price: 365.00,
-            oldPrice: 400.00,
-            tag: "New"
-          },
-          product2: {
-            title: "Bomber in Cotton",
-            image: require("../assets/products/product_02.jpg"), 
-            text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque a dignissimos, nesciunt consequatur omnis, illo modi unde officia, quisquam corporis incidunt voluptates quidem autem repudiandae? Temporibus natus harum reiciendis quas.",
-            price: 290.00,
-            oldPrice: 260.00,
-            tag: "New"
-          },
-          product3: {
-            title: "Hooded Coat",
-            image: require("../assets/products/product_03.jpg"), 
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti veniam nesciunt temporibus eveniet aspernatur! Tenetur molestias esse accusamus unde quidem, non harum reprehenderit quasi hic exercitationem, aspernatur nobis vero!",
-            price: 320.00,
-            oldPrice: 295.00,
-            tag: "New"
           }
         },
       womanStyle: 
@@ -392,7 +381,18 @@ export default {
             image: require("../assets/pet-style/p-3.jpg"), 
             text: "Beds"
           },
-        }
+        },
+    }
+  },
+  methods: {
+    showDetails(itemCliked) {
+        this.product = itemCliked
+        console.log(this.product)
+        return this.product
+    },
+    addWishlist(item) {
+        myWishlist.push(item)
+        alert("ADDED TO WISHLIST!")
     }
   }
 }

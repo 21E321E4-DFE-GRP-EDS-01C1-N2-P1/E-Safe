@@ -56,7 +56,7 @@
         <h3 class="text-center mb-4 fw-bold">Your Order</h3>
         <div class="w-50 input-group mb-3">
             <button @click="applyCoupon" class="btn btn-outline-secondary" type="button" id="button-addon1">Apply</button>
-            <input v-model="coupon" type="number" class="form-control" placeholder="Your Coupon">
+            <input v-model="coupon" type="text" class="form-control" placeholder="Your Coupon">
         </div>
         <div class="w-100 border mx-auto mb-3" >
             <Cart 
@@ -70,7 +70,7 @@
             <p class="fs-4 fw-bold my-auto p-4 mx-4">${{ showValue() }}</p>
         </div>
         <div class="text-center p-5">
-            <button class="btn btn-dark btn-cliked fs-5 px-5 rounded-3">Pay whit <span class="text-primary">Pay</span><span class="text-info">Pal</span></button>
+            <button @click="checkout()" class="btn btn-dark btn-cliked fs-5 px-5 rounded-3">Pay with <span class="text-primary">Pay</span><span class="text-info">Pal</span></button>
         </div>
     </section>
     
@@ -79,6 +79,8 @@
 <script>
 import Cart from './Cart.vue'
 import cartProducts from '../data/cart.js'
+import myCoupons from '../data/coupon.js'
+import router from '../router/index.js'
 
 export default {
     name: 'Checkout',
@@ -88,28 +90,62 @@ export default {
     data() {
         return {
             cartProducts: cartProducts,
-            coupon: 0,
-            valor: 0,
-            total: 0
+            myCoupons: myCoupons, 
+            coupon: '',
+            valor: 1,
+            total: 0,
+            couponUsed: true,
+            help: false
         }
     },
     methods: {
         showValue() {
-            this.total = this.sumCart() - this.valor
-            return this.total.toFixed(2)
+            let discount = this.sumCart() * this.valor
+            if(discount == this.sumCart())
+                this.total = this.sumCart()   
+            else if(discount == 0)
+                this.total = 0
+            else 
+                this.total = this.sumCart() - discount
+            return this.total
         },
         applyCoupon() {
-            this.valor = this.coupon
+            if(this.coupon.toLowerCase() == 'welcome') {
+                if(this.couponUsed) {
+                    this.valor = myCoupons.welcome
+                    alert('COUPON APPLIED!')
+                    this.couponUsed = false
+                }
+                else 
+                    alert('INVALID COUPON!')
+            }
+            else if(this.coupon.toLowerCase() == 'help') {
+                this.valor = myCoupons.help
+                alert('COUPON APPLIED!')
+                this.help = true
+            }
+            else 
+                alert('INVALID COUPON!')
+            
         },
         sumCart() {
             let sum = 0
             for(let product in this.cartProducts) {
-                console.log(product.qt)
-                    sum += this.cartProducts[product].qt * this.cartProducts[product].price                    
+                sum += this.cartProducts[product].price                    
             }
             sum = Math.round(sum * 100) / 100
             return sum.toFixed(2) 
 		},
+        checkout() {
+            if(this.total == 0) { 
+                alert('Help call triggered')
+				router.push({name: 'Home'})
+            }
+            else {
+                alert('Order placed successfully')
+                router.push({name: 'Home'})
+            }
+        }
     }
 }
 </script>
