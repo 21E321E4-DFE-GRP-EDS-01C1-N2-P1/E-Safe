@@ -14,48 +14,50 @@
 							<div class="form-row d-flex">
 								<div class="col m-3">
 									<label for="inputFirstName">First Name</label>
-									<input v-model="inputFirstName" type="text" class="form-control" placeholder="First name">
+									<input id="inputFirstName" v-model="inputFirstName" type="text" class="form-control" placeholder="First name">
 								</div>
 								<div class="col m-3">
 									<label for="inputLastName">Last Name</label>
-									<input v-model="inputLastName" type="text" class="form-control" placeholder="Last name">
+									<input id="inputLastName" v-model="inputLastName" type="text" class="form-control" placeholder="Last name">
 								</div>
 							</div>
 							<div class="form-row d-flex">
 								<div class="col m-3">
 									<label for="inputEmail">E-mail</label>
-									<input v-model="state.inputEmail" type="text" class="form-control" placeholder="johndoe@email.com">
+									<input id="inputEmail" v-model="state.inputEmail" type="text" class="form-control" placeholder="johndoe@email.com">
 									<span v-if="v$.inputEmail.$error">
 										{{ v$.inputEmail.$errors[0].$message }}
 									</span>
 								</div>
 								<div class="col m-3">
 									<label for="inputPhone">Phone (Only Numbers)</label>
-									<input v-model="inputPhone" type="number" class="form-control" placeholder="+55 (021) 9999-0000">
+									<input id="inputPhone" v-model="inputPhone" type="number" class="form-control" placeholder="+55 (021) 9999-0000">
 								</div>
 							</div>
 							<div class="form-row d-flex flex-column">
 								<div class="form-row d-flex">
 									<div class="col m-3">
 										<label for="inputPassword">Password</label>
-										<input v-model="state.inputPassword" :type="showPass ? 'text' : 'password'" class="form-control" placeholder="Password">
+										<input id="inputPassword" v-model="state.inputPassword" :type="showPass ? 'text' : 'password'" class="form-control" placeholder="Password">
 										<span v-if="v$.inputPassword.$error">
 											{{ v$.inputPassword.$errors[0].$message }}
 										</span>
 									</div>
 									<div class="col m-3">
 										<label for="inputConfirmPassword">Confirm Password</label>
-										<input v-model="state.inputConfirmPassword" :type="showPass ? 'text' : 'password'" class="form-control" placeholder="Confirm Password">
+										<input id="inputConfirmPassword" v-model="state.inputConfirmPassword" :type="showPass ? 'text' : 'password'" class="form-control" placeholder="Confirm Password">
 										<span v-if="v$.inputConfirmPassword.$error">
 											{{ v$.inputConfirmPassword.$errors[0].$message }}
 										</span>
 									</div>
 								</div>
 								<div class="m-3">
-									<input class="toggle" type="checkbox" @click="togglePass"> Show Password
+									<input id="showPass" class="toggle" type="checkbox" @click="togglePass"> Show Password
+									<label class="d-none" for="showPass">Show Password</label>
 								</div>
 								<div class="m-3">
-									<input class="toggle" type="checkbox" @click="toggleAddress"> I Want to Add My Address
+									<input id="showAddrs" class="toggle" type="checkbox" @click="toggleAddress"> I Want to Add My Address
+									<label class="d-none" for="showAddrs">Show Address</label>
 								</div>   
 							</div>
 							<div v-if="addAddress">
@@ -110,14 +112,6 @@ export default {
 	setup() {
 		const inputEmail = ref("")
 		const inputPassword = ref("")
-		// const inputFirstName = ref("")
-		// const inputLastName = ref("")
-		// const inputPhone = ref("")
-		// const inputAddress = ref("")
-		// const inputAddress2 = ref("")
-		// const inputCity = ref("")
-		// const inputState = ref("")
-		// const inputZip = ref("")
 
 		const Register = () => {
 			firebase

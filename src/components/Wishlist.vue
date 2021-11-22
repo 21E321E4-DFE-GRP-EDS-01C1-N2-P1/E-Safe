@@ -23,7 +23,7 @@
                                         <p class="my-auto">View More</p>
                                     </button>
                                 </div>
-                                <button type="button" class="btn-close fs-6 bg-danger mt-3" @click="toggleCart"></button>
+                                <span type="button" class="btn-close fs-6 bg-danger mt-3" @click="toggleCart"></span>
                             </div>
                             
                         </div>

@@ -4,22 +4,21 @@
             <footer class="py-3">
                 <div class="row">
                     <div class="col-md-2">
-                        <h5 class="text-light">Section</h5>
+                        <h5 class="text-light fw-bold">Section</h5>
                         <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Woman</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Men</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pet</a></li>
+                            <li class="nav-item mb-2"><router-link class="nav-link p-0 text-light" :to="{name: 'Home'}">Home</router-link></li>
+                            <li class="nav-item mb-2"><router-link class="nav-link p-0 text-light" :to="{name: 'Women'}">Women</router-link></li>
+                            <li class="nav-item mb-2"><router-link class="nav-link p-0 text-light" :to="{name: 'Men'}">Men</router-link></li>
+                            <li class="nav-item mb-2"><router-link class="nav-link p-0 text-light" :to="{name: 'Pet'}">Pet</router-link></li>
                         </ul>
                     </div>
 
                     <div class="col-md-4">
-                        <h5 class="text-light">Institutional</h5>
+                        <h5 class="text-light fw-bold">Institutional</h5>
                         <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contact Us</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Privacy Policy</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">My Account</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        <li class="nav-item mb-2"><span href="#" class="nav-link p-0 text-light">Contact Us</span></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Privacy Policy</a></li>
+                        <li class="nav-item mb-2"><router-link class="nav-link p-0 text-light" :to="{name: 'Account'}">My Account</router-link></li>
                         </ul>
                     </div>
                     
@@ -33,9 +32,9 @@
                 <div class="d-flex justify-content-between py-4 my-4 border-top text-light">
                     <p>© 2021 Coding Style. All rights reserved.</p>
                     <ul class="list-unstyled d-flex">
-                        <li class="ms-3"><a href="#"><i class="bi bi-twitter fs-4 text-light"></i></a></li>
-                        <li class="ms-3"><a href="#"><i class="bi bi-facebook fs-4 text-light"></i></a></li>
-                        <li class="ms-3"><a href="#"><i class="bi bi-instagram fs-4 text-light"></i></a></li>
+                        <li class="ms-3"><a href="https://twitter.com/">Twitter<i class="bi bi-twitter fs-4 text-light"></i></a></li>
+                        <li class="ms-3"><a href="https://facebook.com/">Facebook<i class="bi bi-facebook fs-4 text-light"></i></a></li>
+                        <li class="ms-3"><a href="https://instagram.com/">Instagram<i class="bi bi-instagram fs-4 text-light"></i></a></li>
                     </ul>
                 </div>
             </footer>

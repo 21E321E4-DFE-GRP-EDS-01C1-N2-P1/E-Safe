@@ -14,9 +14,7 @@
 					<li><router-link class="link" :to="{name: 'Pet'}">&lt; Pet /&gt;</router-link></li>
 					<li><router-link class="link-account" :to="{name: 'Account'}"> &lt; My Account /&gt; </router-link></li>
 					<li class="link" @click="toggleCart">
-						<i class="fa fa-shopping-cart"/> Cart 
-							<span class="badge">{{ sumQt() }}</span>
-
+						<i class="fa fa-shopping-cart"/>
 					</li>
 					<li class="link" @click="toggleSearch">
 						<i class="fas fa-search"></i>
@@ -30,16 +28,15 @@
 						<div class="d-flex flex-column">
 							<li @click="toggleMobileNav"><router-link class="p-2 link-account" :to="{name: 'Account'}">&lt; My Account /&gt;</router-link></li>
 							<li class="p-2 text-dark link-account" @click="toggleCartAndNav">
-								<i class="text-dark fa fa-shopping-cart"/> Cart 
-									<span class="text-dark badge">{{ sumQt() }}</span>
-
+								<i class="text-dark fa fa-shopping-cart"/> Cart
 							</li>	
 							<li class="p-2 text-dark">
 								<div class="d-flex">
-									<button type="button" class="btn btn-outline-dark">
+									<span type="button" class="btn btn-outline-dark">
 										<i class="fas fa-search"></i>
-									</button>
-									<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+									</span>
+									<input id="searchNav" type="search" class="form-control rounded" placeholder="Search"/>
+									<label for="searchNav" class="d-none">SearchNav</label>
 								</div>
 							</li>
 							<li @click="toggleMobileNav"><router-link class="p-2 link" :to="{name: 'Home'}">&lt; Home /&gt;</router-link></li>
@@ -53,10 +50,11 @@
 				</transition>
 			</nav>
 			<div v-show="showSearch" class="w-25 m-5 align-self-center input-group">
-				<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-				<button type="button" class="btn btn-outline-light">
+				<input id="searchNavMob" type="search" class="form-control rounded" placeholder="Search"/>
+				<label for="searchNavMob" class="d-none">SearchNavMob</label>
+				<span type="button" class="btn btn-outline-light">
 						<i class="fas fa-search"></i>
-				</button>
+				</span>
 			</div>
 			<div v-show="showCart" class="container v-fade">
 				<div class="shopping-cart d-flex flex-column ">
@@ -69,7 +67,7 @@
 						<div class="shopping-cart-total">
 							<span class="lighter-text">Total:</span>
 							<span class="main-color-text">$ {{ sumCart() }}</span>
-							<button type="button" class="btn-close bg-light p-2 ms-5" @click="toggleCart"></button>
+							<span type="button" class="btn-close bg-light p-2 ms-5" @click="toggleCart"></span>
 							
 						</div>
 					</div>
@@ -166,12 +164,12 @@ export default {
 						return Math.round(sum * 100) / 100
 				},
 				sumQt() {
-						let sum = 0
-						for(let product in this.cartProducts) {
-								sum += cartProducts[product].qt
+						// let sum = 0
+						// for(let product in this.cartProducts) {
+						// 		sum += cartProducts[product].qt - 9
 										
-						}
-						return sum
+						// }
+						return this.cartProducts.length
 				}
 
 	}
@@ -198,7 +196,7 @@ header {
 		@media (min-width: 1140px){
 			max-width: 1140px;
 		}
-		@media (max-width: 1165px){
+		@media (max-width: 1185px){
 			.branding-name {
 				display: none;
 			}

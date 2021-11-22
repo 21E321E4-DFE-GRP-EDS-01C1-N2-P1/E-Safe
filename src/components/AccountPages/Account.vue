@@ -14,22 +14,22 @@
 					<legend class="fw-bold my-5">Personal Information</legend>
 					<div class="col-md-10 d-flex  mx-auto">
 						<div class="col-md-6 form-floating mb-3 pe-2">
-							<input type="text" class="form-control" :value="userData.firstName">
-							<label for="floatingInput">First name</label>
+							<input id="firstName" type="text" class="form-control" :value="userData.firstName">
+							<label for="firstName">First name</label>
 						</div>
 						<div class="col-md-6 form-floating">
-							<input type="text" class="form-control" :value="userData.lastName">
-							<label for="floatingLast">Last name</label>
+							<input id="lastName" type="text" class="form-control" :value="userData.lastName">
+							<label for="lastName">Last name</label>
 						</div>
 					</div>
 					<div class="col-md-10 form-floating d-flex justify-content-center mx-auto mb-3 ">
-						<input type="email" class="form-control" :value="userData.email"> 
-						<label for="floatingAddrs">Email address</label>
+						<input id="email" type="email" class="form-control" :value="userData.email"> 
+						<label for="email">Email address</label>
 					</div>
 					<div class="col-md-10 d-flex  mx-auto">
 						<div class="col-md-6 form-floating mb-3 pe-2">
-							<input type="text" class="form-control" :value="userData.phone">
-							<label for="floatingInput">Phone number</label>
+							<input id="phone" type="text" class="form-control" :value="userData.phone">
+							<label for="phone">Phone number</label>
 						</div>
 						<div class="col-md-6 form-floating">
 						</div>
@@ -42,37 +42,37 @@
 				<fieldset disabled>
 					<legend class="fw-bold my-5">Address</legend>
 					<div class="col-md-10 form-floating d-flex justify-content-center mx-auto mb-3">
-						<input type="text" class="form-control" :value="userData.addrs">
-						<label for="floatingPassword">Address</label>
+						<input id="addrs" type="text" class="form-control" :value="userData.addrs">
+						<label for="addrs">Address</label>
 					</div>
 					<div class="col-md-10 form-floating d-flex justify-content-center mx-auto mb-3">
-						<input type="text" class="form-control" :value="userData.addrs2">
-						<label for="floatingPassword">Address 2</label>
+						<input id="addrs2" type="text" class="form-control" :value="userData.addrs2">
+						<label for="addrs2">Address 2</label>
 					</div>
 					<div class="col-md-10 d-flex  mx-auto">
 						<div class="col-md-6 form-floating mb-3 pe-2">
-							<input type="text" class="form-control" :value="userData.city">
-							<label for="floatingInput">City</label>
+							<input id="city" type="text" class="form-control" :value="userData.city">
+							<label for="city">City</label>
 						</div>
 						<div class="col-md-6 form-floating">
-							<input type="text" class="form-control" :value="userData.state">
-							<label for="floatingPassword">State</label>
+							<input id="state" type="text" class="form-control" :value="userData.state">
+							<label for="state">State</label>
 						</div>
 					</div>
 					<div class="col-md-10 d-flex mx-auto">
 						<div class="col-md-6 form-floating mb-3 pe-2">
-							<input type="text" class="form-control" :value="userData.zip">
-							<label for="floatingInput">Zip</label>
+							<input id="zip" type="text" class="form-control" :value="userData.zip">
+							<label for="zip">Zip</label>
 						</div>
 						<div class="col-md-6 form-floating">
-							<input type="text" class="form-control" value="Neighborhood">
-							<label for="floatingPassword">Neighborhood</label>
+							<input id="Neighborhood" type="text" class="form-control" value="Neighborhood">
+							<label for="Neighborhood">Neighborhood</label>
 						</div>
 					</div>
 					<div class="col-md-10 d-flex mx-auto">
 						<div class="col-md-6 form-floating mb-3 pe-2">
-							<input type="text" class="form-control" value="Russia">
-							<label for="floatingInput">Country</label>
+							<input id="Country" type="text" class="form-control" value="Russia">
+							<label for="Country">Country</label>
 						</div>
 						<div class="col-md-6 form-floating">
 						</div>

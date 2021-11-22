@@ -15,13 +15,15 @@
 						<div class="form-group row mb-3">
 							<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg m-1">Email</label>
 							<div class="col-sm-10">
-								<input v-model="email" type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Email-Address" required>
+								<input id="email" v-model="email" type="email" class="form-control form-control-lg" placeholder="Email-Address" required>
+								<label class="d-none" for="email">email</label>
 							</div>
 						</div>
 						<div class="form-group row mb-3">
 							<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg m-1">Password</label>
 							<div class="col-sm-10">
-								<input v-model="password" type="password" class="form-control form-control-lg" id="colFormLabelLg" placeholder="*********" required>
+								<input id="pass" v-model="password" type="password" class="form-control form-control-lg" placeholder="*********" required>
+								<label class="d-none" for="pass">pass</label>
 							</div>
 						</div>
 						
@@ -30,7 +32,7 @@
 								<button @click="Login" type="button" class="btn1 mt-3 mb-5">Login</button>
 							</div>
 						</div>
-						<a href="#">Forgot Password</a>
+						<span href="#">Forgot Password</span>
 						<p>Don't have an account? <a href="Register">Register Here</a></p>
 					</form>            
 				</div>

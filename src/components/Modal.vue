@@ -42,18 +42,19 @@
                         <div class="d-flex justify-content-center btn-direction">
                             <div class="mx-2 my-4  item-spacing">
                                 <div class="input-group">
-                                    <button @click="decrease()" class="btn btn-outline-dark py-1 px-3 fs-3" type="button" id="button-addon1">-</button>
-                                    <input type="text" class="form-counter" :value="counter" name="button-addon1 button-addon2" required>
-                                    <button @click="add()" class="btn btn-outline-dark py-1 px-3 fs-3" type="button" id="button-addon2">+</button>
+                                    <span @click="decrease()" class="btn btn-outline-dark py-1 px-3 fs-3" type="button" id="button-addon1">-</span>
+                                    <input id="addQt" type="text" class="form-counter" :value="counter" name="button-addon1 button-addon2" required>
+                                    <label for="addQt" class="d-none">addQt</label>
+                                    <span @click="add()" class="btn btn-outline-dark py-1 px-3 fs-3" type="button" id="button-addon2">+</span>
                                 </div>
                             </div>
-                            <button type="button" class="d-flex my-4 mx-2 bg-dark text-light add-cart border-0 item-spacing">
+                            <span type="button" class="d-flex my-4 mx-2 bg-dark text-light add-cart border-0 item-spacing">
                                 <span class="ps-4 me-3 my-auto fs-5"><i class="bi bi-cart text-light"></i></span>
                                 <p class="pe-4 my-auto fs-5">Add to cart</p>
-                            </button>
-                            <button type="button" class="btn btn-outline-dark rounded-0 mx-2 my-4 item-spacing">
+                            </span>
+                            <span type="button" class="btn btn-outline-dark rounded-0 mx-2 my-4 item-spacing">
                                 <span class="my-auto fs-5"><i class="bi bi-heart fs-4"></i></span>
-                            </button>
+                            </span>
                         </div>
                         <hr class="w-75 bg-secondary mx-auto">
                         <p class="fs-6 text-center">REF: <span class="fs-6 text-secondary">{{ product.id }}</span></p>
