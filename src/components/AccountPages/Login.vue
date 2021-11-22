@@ -41,6 +41,7 @@
 <script>
 import { ref } from 'vue'
 import firebase from 'firebase'
+import userData from '../../data/user.js'
 
 export default {
 	setup() {
@@ -53,6 +54,10 @@ export default {
 				.signInWithEmailAndPassword(email.value, password.value)
 				.then(data => console.log(data))
 				.catch(err => alert(err.message))
+			
+			userData.email = this.email
+			console.log(userData.email)
+
 		}
 
 		return{
@@ -61,6 +66,11 @@ export default {
 			password
 		}
 	},
+	data() {
+        return {
+            userData: userData
+        }
+    }
 }
 </script>
 

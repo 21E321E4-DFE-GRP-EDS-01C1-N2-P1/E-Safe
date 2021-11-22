@@ -86,7 +86,7 @@
 							</div>
 							<div class="form-row mb-3">
 								<div class="col-lg-7">
-									<button @click="checkForm" class="btn1 mt-3 mb-5">Next</button>
+									<button @click="checkForm" class="btn1 mt-3 mb-5">Submit</button>
 								</div>
 							</div>
 							
@@ -104,11 +104,20 @@ import { reactive, computed } from 'vue'
 import firebase from 'firebase'
 import { ref } from 'vue'
 import router from '../../router/index.js'
+import { createUser } from '@/main'
 
 export default {
 	setup() {
 		const inputEmail = ref("")
 		const inputPassword = ref("")
+		// const inputFirstName = ref("")
+		// const inputLastName = ref("")
+		// const inputPhone = ref("")
+		// const inputAddress = ref("")
+		// const inputAddress2 = ref("")
+		// const inputCity = ref("")
+		// const inputState = ref("")
+		// const inputZip = ref("")
 
 		const Register = () => {
 			firebase
@@ -148,8 +157,8 @@ export default {
 	},
 	data() {
 		return {
-		showPass: false,
-		addAddress: false,
+			showPass: false,
+			addAddress: false,
 		}
 	},
 	methods: {
@@ -162,12 +171,25 @@ export default {
 		checkForm() {
 			this.v$.$validate()
 			if(!this.v$.$error) {
-				// alert("Form Ok!")
 				this.Register()
+				this.createUserFirebase()
 			} else{
 				alert("Form Error!")
 			}       
 		} ,
+		createUserFirebase(){
+			createUser({
+				FirstName: this.inputFirstName,
+				LastName: this.inputLastName,
+				Email: this.state.inputEmail,
+				Phone: this.inputPhone,
+				Address: this.inputAddress,
+				Address2: this.inputAddress2,
+				City: this.inputCity,
+				State: this.inputState,
+				Zip: this.inputZip
+			})
+		}
 	},
 	computed: {
 		notSamePasswords() {
