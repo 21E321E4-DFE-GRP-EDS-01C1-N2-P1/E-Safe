@@ -6,7 +6,7 @@
         </div>
 		<div class="d-flex justify-content-end ">
 			<button type="button" class="btn btn-dark mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal2">Whishlist</button>
-			<button type="button" class="btn btn-dark ms-2">My Orders</button>
+			<button type="button" class="btn btn-dark ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal3">My Orders</button>
 		</div>
 		<div class="bg-light w-100">
             <form>
@@ -84,6 +84,7 @@
 			<button @click="logout" class="btn1 mt-3 mb-5 btn-1">Logout</button>
 		</div>
 		<Wishlist/>
+		<Orders/>
 	</section>
 				
 </template>
@@ -93,11 +94,13 @@ import { onBeforeMount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import firebase from 'firebase'
 import Wishlist from '../Wishlist.vue'
+import Orders from '../Orders.vue'
 // import { ref } from 'veu'
 
 export default {
 	components: {
-		Wishlist
+		Wishlist,
+        Orders
 	},
 	setup() {
 		const router = useRouter()

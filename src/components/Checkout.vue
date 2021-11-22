@@ -55,10 +55,10 @@
         </div>
         <h3 class="text-center mb-4 fw-bold">Your Order</h3>
         <div class="w-50 input-group mb-3">
-            <button @click="test" class="btn btn-outline-secondary" type="button" id="button-addon1">Apply</button>
+            <button @click="applyCoupon" class="btn btn-outline-secondary" type="button" id="button-addon1">Apply</button>
             <input v-model="coupon" type="number" class="form-control" placeholder="Your Coupon">
         </div>
-        <div class="w-100 text-center border mx-auto mb-3" >
+        <div class="w-100 border mx-auto mb-3" >
             <Cart 
                 v-for="productItem in cartProducts"
                 :key="productItem.id"
@@ -67,7 +67,7 @@
         </div>
         <div class="d-flex justify-content-between border ">
             <p class="fs-5 fw-bold my-auto p-4 mx-4">TOTAL:</p>
-            <p class="fs-4 fw-bold my-auto p-4 mx-4">${{ applyCoupon() }}</p>
+            <p class="fs-4 fw-bold my-auto p-4 mx-4">${{ showValue() }}</p>
         </div>
         <div class="text-center p-5">
             <button class="btn btn-dark btn-cliked fs-5 px-5 rounded-3">Pay whit <span class="text-primary">Pay</span><span class="text-info">Pal</span></button>
@@ -94,11 +94,11 @@ export default {
         }
     },
     methods: {
-        applyCoupon() {
+        showValue() {
             this.total = this.sumCart() - this.valor
             return this.total.toFixed(2)
         },
-        test() {
+        applyCoupon() {
             this.valor = this.coupon
         },
         sumCart() {

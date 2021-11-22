@@ -8,7 +8,7 @@
             <span class="fw-bold fs-6 mx-1">${{ product.price.toFixed(2) }}</span>
         </div>
         <div class="d-flex position-absolute box-icons justify-content-evenly w-100">
-            <span  class="rounded-circle bg-dark size-circle btn"><i class="bi bi-heart text-light fs-4"></i></span>
+            <span  @click="addWishlist(product)" class="rounded-circle bg-dark size-circle btn"><i class="bi bi-heart text-light fs-4"></i></span>
             <span @click="addCart(product)" class="rounded-circle bg-dark size-circle btn"><i class="bi bi-cart text-light fs-4"></i></span>
         </div>
     </div>
@@ -16,15 +16,16 @@
 
 <script>
 import cartProducts from '../data/cart.js'
-// import alert from './Alert.vue'
-
+import myWishlist from '../data/wishlist.js'
 
 export default {
     name: 'Thumbnail',
     props: ['product'],
+   
     data() {
         return {
             cartProducts: cartProducts,
+            myWishlist: myWishlist
         }
     },  
     methods: {
@@ -39,6 +40,10 @@ export default {
             //     </div>`
             // alertPlaceholder.append(wrapper)
         },
+        addWishlist(item) {
+            myWishlist.push(item)
+            console.log(this.myWishlist)
+        }
     }
 }
 </script>
