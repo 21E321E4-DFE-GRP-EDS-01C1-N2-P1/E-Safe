@@ -293,7 +293,7 @@ export default {
         {
           slide1: { 
             image: require("../assets/S1.jpg"), 
-            text: "Code Your Onw Style",
+            text: "Code Your Own Style",
             alt: "Image of a stylish man and woman",
             btnText1: "Woman Collection",
             btnText2: "Man Collection"

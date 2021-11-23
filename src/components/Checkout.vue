@@ -125,7 +125,8 @@ export default {
                 this.total = 0
             else 
                 this.total = this.sumCart() - discount
-            return this.total
+            
+            return Math.round(this.total * 100) / 100
         },
         applyCoupon() {
             if(this.coupon.toLowerCase() == 'welcome') {
@@ -152,7 +153,7 @@ export default {
                 sum += this.cartProducts[product].price                    
             }
             sum = Math.round(sum * 100) / 100
-            return sum.toFixed(2) 
+            return sum
 		},
         checkout() {
             if(this.total == 0) { 
