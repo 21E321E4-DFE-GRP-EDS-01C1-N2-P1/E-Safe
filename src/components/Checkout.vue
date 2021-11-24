@@ -100,7 +100,9 @@ export default {
 					router.replace('/Login')
 				} else if (route.path == '/Login' || route.path == '/Register'){
 					router.replace('/Checkout')
-				} 
+				} else {
+					router.replace('/NotFound')
+				}
 			})
 
 		})

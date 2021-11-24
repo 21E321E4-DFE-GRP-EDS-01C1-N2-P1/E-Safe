@@ -1,13 +1,15 @@
 const userData = {
-    firstName: 'Jonh',
-    lastName: 'Silver',
-    email: 'Jonh@gmail.com',
-    phone: '999999',
-    addrs: 'Av Rio Preto',
-    addrs2: '556',
-    city: 'Transilvania',
-    state: 'Moon',
-    zip: '9663-21',
+    id: null,
+    firstName: null,
+    lastName: null,
+    email: null,
+    password: null,
+    phone: null,
+    addrs: null,
+    addrs2: null,
+    city: null,
+    state: null,
+    zip: null,
 }
     
 export default userData

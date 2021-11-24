@@ -14,21 +14,27 @@
 					<legend class="fw-bold my-5">Personal Information</legend>
 					<div class="col-md-10 d-flex  mx-auto">
 						<div class="col-md-6 form-floating mb-3 pe-2">
-							<input id="firstName" type="text" class="form-control" :value="userData.firstName">
+							<input id="uid" type="text" class="form-control" :value="$store.state.userData.id">
+							<label for="uid">ID</label>
+						</div>
+					</div>
+					<div class="col-md-10 d-flex  mx-auto">
+						<div class="col-md-6 form-floating mb-3 pe-2">
+							<input id="firstName" type="text" class="form-control" :value="$store.state.userData.firstName">
 							<label for="firstName">First name</label>
 						</div>
 						<div class="col-md-6 form-floating">
-							<input id="lastName" type="text" class="form-control" :value="userData.lastName">
+							<input id="lastName" type="text" class="form-control" :value="$store.state.userData.lastName">
 							<label for="lastName">Last name</label>
 						</div>
 					</div>
 					<div class="col-md-10 form-floating d-flex justify-content-center mx-auto mb-3 ">
-						<input id="email" type="email" class="form-control" :value="userData.email"> 
+						<input id="email" type="email" class="form-control" :value="$store.state.userData.email"> 
 						<label for="email">Email address</label>
 					</div>
 					<div class="col-md-10 d-flex  mx-auto">
 						<div class="col-md-6 form-floating mb-3 pe-2">
-							<input id="phone" type="text" class="form-control" :value="userData.phone">
+							<input id="phone" type="text" class="form-control" :value="$store.state.userData.phone">
 							<label for="phone">Phone number</label>
 						</div>
 						<div class="col-md-6 form-floating">
@@ -42,26 +48,26 @@
 				<fieldset disabled>
 					<legend class="fw-bold my-5">Address</legend>
 					<div class="col-md-10 form-floating d-flex justify-content-center mx-auto mb-3">
-						<input id="addrs" type="text" class="form-control" :value="userData.addrs">
+						<input id="addrs" type="text" class="form-control" :value="$store.state.userData.addrs">
 						<label for="addrs">Address</label>
 					</div>
 					<div class="col-md-10 form-floating d-flex justify-content-center mx-auto mb-3">
-						<input id="addrs2" type="text" class="form-control" :value="userData.addrs2">
+						<input id="addrs2" type="text" class="form-control" :value="$store.state.userData.addrs2">
 						<label for="addrs2">Address 2</label>
 					</div>
 					<div class="col-md-10 d-flex  mx-auto">
 						<div class="col-md-6 form-floating mb-3 pe-2">
-							<input id="city" type="text" class="form-control" :value="userData.city">
+							<input id="city" type="text" class="form-control" :value="$store.state.userData.city">
 							<label for="city">City</label>
 						</div>
 						<div class="col-md-6 form-floating">
-							<input id="state" type="text" class="form-control" :value="userData.state">
+							<input id="state" type="text" class="form-control" :value="$store.state.userData.state">
 							<label for="state">State</label>
 						</div>
 					</div>
 					<div class="col-md-10 d-flex mx-auto">
 						<div class="col-md-6 form-floating mb-3 pe-2">
-							<input id="zip" type="text" class="form-control" :value="userData.zip">
+							<input id="zip" type="text" class="form-control" :value="$store.state.userData.zip">
 							<label for="zip">Zip</label>
 						</div>
 						<div class="col-md-6 form-floating">
@@ -107,7 +113,6 @@ export default {
 		const router = useRouter()
 		const route = useRoute()
 		const users = useLoadUsers()
-		console.log(userData.email)
 		
 		onBeforeMount(() => {		
 			firebase.auth().onAuthStateChanged((user) => {
@@ -115,9 +120,7 @@ export default {
 					router.replace('/Login')
 				} else if (route.path == '/Login' || route.path == '/Register'){
 					router.replace('/Account')
-					console.log(userData.email)
-					this.email.value = userData.email;
-				} 
+				}
 			})
 
 		})

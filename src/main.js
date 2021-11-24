@@ -14,14 +14,12 @@ const firebaseConfig = {
     appId: "1:578402053859:web:a8db343299c333c72c9fd6"
   }
 
-// firebase.initializeApp(firebaseConfig)
-
 const firebaseApp = firebase.initializeApp(firebaseConfig)
-const db = firebaseApp.firestore()
+export const db = firebaseApp.firestore()
 const usersCollection = db.collection('users')
 
 export const createUser = user => {
-    return usersCollection.add(user)
+    return usersCollection.document(user.id).set(user)
 }
 export const getUser = async id => {
     const user = await usersCollection.doc(id).get()

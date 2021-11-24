@@ -14,24 +14,24 @@
 							<div class="form-row d-flex">
 								<div class="col m-3">
 									<label for="inputFirstName">First Name</label>
-									<input id="inputFirstName" v-model="inputFirstName" type="text" class="form-control" placeholder="First name">
+									<input id="inputFirstName" v-model="$store.state.userData.firstName" type="text" class="form-control" placeholder="First name">
 								</div>
 								<div class="col m-3">
 									<label for="inputLastName">Last Name</label>
-									<input id="inputLastName" v-model="inputLastName" type="text" class="form-control" placeholder="Last name">
+									<input id="inputLastName" v-model="$store.state.userData.lastName" type="text" class="form-control" placeholder="Last name">
 								</div>
 							</div>
 							<div class="form-row d-flex">
 								<div class="col m-3">
 									<label for="inputEmail">E-mail</label>
 									<input id="inputEmail" v-model="state.inputEmail" type="text" class="form-control" placeholder="johndoe@email.com">
-									<span v-if="v$.inputEmail.$error">
+									<span class="red-warning" v-if="v$.inputEmail.$error">
 										{{ v$.inputEmail.$errors[0].$message }}
 									</span>
 								</div>
 								<div class="col m-3">
 									<label for="inputPhone">Phone (Only Numbers)</label>
-									<input id="inputPhone" v-model="inputPhone" type="number" class="form-control" placeholder="+55 (021) 9999-0000">
+									<input id="inputPhone" v-model="$store.state.userData.phone" type="number" class="form-control" placeholder="+55 (021) 9999-0000">
 								</div>
 							</div>
 							<div class="form-row d-flex flex-column">
@@ -39,14 +39,14 @@
 									<div class="col m-3">
 										<label for="inputPassword">Password</label>
 										<input id="inputPassword" v-model="state.inputPassword" :type="showPass ? 'text' : 'password'" class="form-control" placeholder="Password">
-										<span v-if="v$.inputPassword.$error">
+										<span class="red-warning" v-if="v$.inputPassword.$error">
 											{{ v$.inputPassword.$errors[0].$message }}
 										</span>
 									</div>
 									<div class="col m-3">
 										<label for="inputConfirmPassword">Confirm Password</label>
 										<input id="inputConfirmPassword" v-model="state.inputConfirmPassword" :type="showPass ? 'text' : 'password'" class="form-control" placeholder="Confirm Password">
-										<span v-if="v$.inputConfirmPassword.$error">
+										<span class="red-warning" v-if="v$.inputConfirmPassword.$error">
 											{{ v$.inputConfirmPassword.$errors[0].$message }}
 										</span>
 									</div>
@@ -64,25 +64,25 @@
 								<div class="form-row d-flex">
 									<div class="form-group col m-3">
 										<label for="inputAddress">Address</label>
-										<input v-model="inputAddress" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+										<input v-model="$store.state.userData.addrs" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
 									</div>
 									<div class="form-group col m-3">
 										<label for="inputAddress2">Address 2</label>
-										<input v-model="inputAddress2" type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+										<input v-model="$store.state.userData.addrs2" type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
 									</div>
 								</div>
 								<div class="form-row d-flex">
 									<div class="form-group  col m-3">
 										<label for="inputCity">City</label>
-										<input v-model="inputCity" type="text" class="form-control" id="inputCity" placeholder="New York">
+										<input v-model="$store.state.userData.city" type="text" class="form-control" id="inputCity" placeholder="New York">
 									</div>
 									<div class="form-group col m-3">
 										<label for="inputState">State</label>
-										<input v-model="inputState" type="text" class="form-control" id="inputState" placeholder="New York">
+										<input v-model="$store.state.userData.state" type="text" class="form-control" id="inputState" placeholder="New York">
 									</div>
 									<div class="form-group col m-3">
 										<label for="inputZip">Zip</label>
-										<input v-model="inputZip" type="number" class="form-control" id="inputZip">
+										<input v-model="$store.state.userData.zip" type="number" class="form-control" id="inputZip">
 									</div>
 								</div>
 							</div>
@@ -103,26 +103,13 @@
 import useValidade from '@vuelidate/core'
 import { required, email, minLength, sameAs } from '@vuelidate/validators'
 import { reactive, computed } from 'vue'
-import firebase from 'firebase'
 import { ref } from 'vue'
-import router from '../../router/index.js'
-import { createUser } from '@/main'
 
 export default {
 	setup() {
 		const inputEmail = ref("")
 		const inputPassword = ref("")
-
-		const Register = () => {
-			firebase
-				.auth()
-				.createUserWithEmailAndPassword(state.inputEmail, state.inputPassword)
-				.then(user => {
-					alert(user)
-					router.push({name: 'Account'})
-				})
-				.catch(err => alert(err.message))
-		}
+		const inputConfirmPassword = ref("")
 
 		const state = reactive({
 			inputEmail:'',
@@ -134,16 +121,16 @@ export default {
 			return{
 				inputEmail: { required, email },
 				inputPassword: { required, minLength: minLength(6) },
-				inputConfirmPassword: { required, sameAs: sameAs(state.inputPassword) }
+				inputConfirmPassword: { required, sameAs: sameAs(state.inputConfirmPassword) }
 			}
 		})
 
 		const v$ = useValidade(rules, state)
 
 		return{
-			Register,
 			inputEmail,
 			inputPassword,
+			inputConfirmPassword,
 			state,
 			v$,
 		}
@@ -162,33 +149,22 @@ export default {
 		this.addAddress = !this.addAddress
 		},
 		checkForm() {
+			alert("checkForm")
 			this.v$.$validate()
 			if(!this.v$.$error) {
-				this.Register()
-				this.createUserFirebase()
+				this.updateUserDataBase()
+				alert("Validation Completed")
+				this.$store.commit('registerFirebase')
+				alert("Calling FirebaseAuth")
 			} else{
 				alert("Form Error!")
 			}       
 		} ,
-		createUserFirebase(){
-			createUser({
-				FirstName: this.inputFirstName,
-				LastName: this.inputLastName,
-				Email: this.state.inputEmail,
-				Phone: this.inputPhone,
-				Address: this.inputAddress,
-				Address2: this.inputAddress2,
-				City: this.inputCity,
-				State: this.inputState,
-				Zip: this.inputZip
-			})
+		updateUserDataBase(){
+			this.$store.state.userData.password = this.state.inputConfirmPassword
+			this.$store.state.userData.email = this.state.inputEmail
 		}
 	},
-	computed: {
-		notSamePasswords() {
-			return (this.inputPassword !== this.inputConfirmPassword)
-		},
-	}
 }
 </script>
 
@@ -287,5 +263,9 @@ form{
 }
 .toggle:disabled::before {
 	background: #2be;
+}
+.red-warning{
+	color: red;
+	font-weight: 800;
 }
 </style>
