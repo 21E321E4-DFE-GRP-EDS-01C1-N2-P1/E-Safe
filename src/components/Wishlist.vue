@@ -12,7 +12,7 @@
                             v-for="(item, index) in myWishlist" :key="item">
                             <div class="row g-0">
                                 <div class="col-md-4 d-flex">
-                                    <img :src="item.img" class="img-fluid rounded-start adjust-image" :alt="product.description" :title="product.name">
+                                    <img :src="item.img" class="img-fluid rounded-start adjust-image" :alt="item.description" :title="item.name">
                                 </div>
                                 <div class="col-md-8 d-flex">
                                     <div class="card-body">
