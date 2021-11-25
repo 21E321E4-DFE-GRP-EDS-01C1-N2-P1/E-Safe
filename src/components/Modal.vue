@@ -102,6 +102,7 @@ export default {
         addCart(item) {
             if(this.choseSize != '') {
                 cartProducts.push(item)
+                this.$store.commit('sumQt', cartProducts.length)
                 alert("ADDED TO CART!")
             }
             else 
