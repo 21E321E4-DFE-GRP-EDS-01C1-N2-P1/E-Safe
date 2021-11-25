@@ -15,6 +15,7 @@
 					<li><router-link class="link-account" :to="{name: 'Account'}"> &lt; My Account /&gt; </router-link></li>
 					<li class="link" @click="toggleCart">
 						<i class="fa fa-shopping-cart"/>
+						<span class="ms-2">{{ $store.state.cartLength }}</span>
 					</li>
 					<li class="link" @click="toggleSearch">
 						<i class="fas fa-search"></i>
