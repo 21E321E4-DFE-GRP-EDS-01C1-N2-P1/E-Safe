@@ -14,15 +14,16 @@ export default createStore({
 				.auth()
 				.createUserWithEmailAndPassword(state.userData.email, state.userData.password)
 				.then(firebase_data => {
+					alert("FirebaseAuth Success: Account Created!")
 					console.log("User Object UID: ------> ", firebase_data.user.uid)
 					state.userData.id = firebase_data.user.uid
 					this.commit('createUserFirebase')
 					router.push({name: 'Account'})
 				})
 				.catch(err => {
-			console.log("FirebaseAuth Error: ", err.message)
-			alert("FirebaseAuth Error: ",err.message)
-		})
+					console.log("FirebaseAuth Error: ", err.message)
+					alert("FirebaseAuth Error: ",err.message)
+				})
 		},
 	createUserFirebase(state){
 			db.collection('users').doc(state.userData.id).set(state.userData)
