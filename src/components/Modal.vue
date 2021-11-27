@@ -99,10 +99,12 @@ export default {
         adjustDecimal() {
             return this.product.price.toFixed(2)
         },
-        addCart(item) {
+        addCart(newItem) {
             if(this.choseSize != '') {
-                cartProducts.push(item)
-                this.$store.commit('sumQt', cartProducts.length)
+                // cartProducts.push(newItem)
+                newItem.choseSize  = this.choseSize
+                this.$store.commit('addCart', newItem)
+                console.log(newItem);
                 alert("ADDED TO CART!")
             }
             else 

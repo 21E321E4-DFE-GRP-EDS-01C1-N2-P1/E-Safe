@@ -9,10 +9,9 @@ export default createStore({
 	state: {
 		userData: userData,
 		cartProducts: cartProducts,
-		cartLength: 0
 	},
 	mutations: {
-	registerFirebase(state){
+		registerFirebase(state){
 			firebase
 				.auth()
 				.createUserWithEmailAndPassword(state.userData.email, state.userData.password)
@@ -38,9 +37,49 @@ export default createStore({
 				alert("FirebaseStore: ", err.message)
 			})
 		},    
-		sumQt(state, payload) {
-			state.cartLength = payload
+		addCart(state, newItem) {
+			const cardItem = state.cartProducts.find(item => item.id === newItem.id)
+			// if (state.cartProducts.length > 0) {		
+			// 	for(let item in state.cartProducts) {
+			// 		console.log('Velho', state.cartProducts[item].choseSize);
+			// 		console.log('novo', newItem.choseSize);
+			// 		if (state.cartProducts[item].id === newItem.id) {
+			// 			if (state.cartProducts[item].choseSize === newItem.choseSize) {
+			// 				state.cartProducts[item].qty += 1
+			// 			} else {
+			// 				newItem.qty = 1
+			// 				state.cartProducts.push(newItem)		
+			// 			}
+			// 		} else {
+			// 			newItem.qty = 1
+			// 			state.cartProducts.push(newItem)
+			// 		}
+			// 	}
+				
+			// } else {
+			// 	newItem.qty = 1
+			// 	state.cartProducts.push(newItem)
+			// }
+
+
+			if(cardItem) {
+				console.log('cardItem  ----->', cardItem.choseSize)
+				console.log('newItem  ----->', newItem.choseSize)
+				cardItem.qty += 1
+			} else {
+				newItem.qty = 1
+				state.cartProducts.push(newItem)
+			}
+			window.localStorage.setItem('myCart', JSON.stringify(state.cartProducts))
+		},
+		removeItemCart(state, payload) {
+			state.cartProducts.splice(payload, 1)
+            window.localStorage.setItem('myCart', JSON.stringify(state.cartProducts))
+		},
+		teste() {
+			
 		}
+		
 	},
 	actions: {
 

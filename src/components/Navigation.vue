@@ -15,7 +15,7 @@
 					<li><router-link class="link-account" :to="{name: 'Account'}"> &lt; My Account /&gt; </router-link></li>
 					<li class="link" @click="toggleCart">
 						<i class="fa fa-shopping-cart"/>
-						<span class="ms-2">{{ $store.state.cartLength }}</span>
+						<span class="ms-2">{{ sumQt() }}</span>
 					</li>
 					<li class="link" @click="toggleSearch">
 						<i class="fas fa-search"></i>
@@ -72,14 +72,7 @@
 							
 						</div>
 					</div>
-					<ul class="shopping-cart-items mt-5 align-self-center">
-						<Cart 
-							v-for="productItem in cartProducts"
-							:key="productItem.id"
-							:productItem="productItem"
-						/>
-					</ul>
-
+					<Cart/>
 					<div v-if="cartProducts.length > 0">
 						<router-link @click="toggleCart" class="button" :to="{name: 'Checkout'}">Checkout</router-link>
 					</div>
@@ -166,7 +159,11 @@ export default {
 				return Math.round(sum * 100) / 100
 			},
 			sumQt() {
-				return this.cartProducts.length
+				let cartLength = 0
+				for(let item in this.$store.state.cartProducts) {
+					cartLength += this.$store.state.cartProducts[item].qty
+				}
+				return cartLength
 			}
 
 	}

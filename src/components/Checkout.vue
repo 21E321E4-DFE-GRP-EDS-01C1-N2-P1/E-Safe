@@ -59,11 +59,7 @@
             <input v-model="coupon" type="text" class="form-control" placeholder="Your Coupon">
         </div>
         <div class="w-100 border mx-auto mb-3" >
-            <Cart 
-                v-for="productItem in cartProducts"
-                :key="productItem.id"
-                :productItem="productItem"
-            />
+            <Cart />
         </div>
         <div class="d-flex justify-content-between border ">
             <p class="fs-5 fw-bold my-auto p-4 mx-4">TOTAL:</p>

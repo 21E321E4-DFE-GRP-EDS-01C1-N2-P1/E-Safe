@@ -9,7 +9,7 @@ const items = [
         category: 'bags',
         size: ['Unique'],
         gender: 'female',
-        qt: 10                    
+        stock: 10                    
     },
     {
         id: '0001',
@@ -21,7 +21,7 @@ const items = [
         category: 'accessories',
         size: ['Unique'],
         gender: 'female',
-        qt: 10
+        stock: 10
     },
     {
         id: '0002',
@@ -33,7 +33,7 @@ const items = [
         category: 'clothes',
         size: ['Small', 'Medium', 'Large'],
         gender: 'female',
-        qt: 10
+        stock: 10
     },
     {
         id: '0003',
@@ -45,7 +45,7 @@ const items = [
         category: 'clothes',
         size: ['Small', 'Medium', 'Large'],
         gender: 'male',
-        qt: 10
+        stock: 10
     },
     {
         id: '0004',
@@ -57,7 +57,7 @@ const items = [
         category: 'clothes',
         size: ['Small', 'Medium'],
         gender: 'female',
-        qt: 10
+        stock: 10
     },
     {
         id: '0005',
@@ -69,7 +69,7 @@ const items = [
         category: 'accessories',
         size: ['Unique'],
         gender: 'male',
-        qt: 10
+        stock: 10
     },
     {
         id: '0006',
@@ -81,7 +81,7 @@ const items = [
         category: 'shoes',
         size: ['36', '38', '40', '42', '44'],
         gender: 'male',
-        qt: 10
+        stock: 10
     },
     {
         id: '0007',
@@ -93,7 +93,7 @@ const items = [
         category: 'bags',
         size: ['Unique'],
         gender: 'unisex',
-        qt: 10
+        stock: 10
     },
     {
         id: '0008',
@@ -105,7 +105,7 @@ const items = [
         category: 'shoes',
         size: ['36', '38', '40'],
         gender: 'unisex',
-        qt: 10
+        stock: 10
     },
     {
         id: '0009',
@@ -117,7 +117,7 @@ const items = [
         category: 'accessories',
         size: ['Unique'],
         gender: 'unisex',
-        qt: 10
+        stock: 10
     },
     {
         id: '0010',
@@ -129,7 +129,7 @@ const items = [
         category: 'bags',
         size: ['Unique'],
         gender: 'unisex',
-        qt: 10
+        stock: 10
     },
     {
         id: '0011',
@@ -141,7 +141,7 @@ const items = [
         category: 'clothes',
         size: ['Small', 'Medium', 'Large'],
         gender: 'female',
-        qt: 10
+        stock: 10
     },
     {
         id: '0012',
@@ -153,7 +153,7 @@ const items = [
         category: 'bags',
         size: ['Unique'],
         gender: 'pet',
-        qt: 10
+        stock: 10
     },
     {
         id: '0013',
@@ -165,7 +165,7 @@ const items = [
         category: '',
         size: ['Unique'],
         gender: 'pet',
-        qt: 10
+        stock: 10
     },
     {
         id: '0014',
@@ -177,7 +177,7 @@ const items = [
         category: '',
         size: ['Unique'],
         gender: 'pet',
-        qt: 10
+        stock: 10
     },
     {
         id: '0015',
@@ -188,7 +188,8 @@ const items = [
         description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, itaque eos? Possimus architecto sapiente quis aliquam consectetur! Voluptatem adipisci, voluptatum ducimus praesentium repellat sit soluta. Sunt mollitia ad reprehenderit iure.',
         category: '',
         size: ['Unique'],
-        gender: 'pet'
+        gender: 'pet',
+        stock: 10
     },
     {
         id: '0016',
@@ -200,7 +201,7 @@ const items = [
         category: '',
         size: ['Unique'],
         gender: 'pet',
-        qt: 10
+        stock: 10
     },
     {
         id: '0017',
@@ -212,7 +213,7 @@ const items = [
         category: '',
         size: ['Unique'],
         gender: 'pet',
-        qt: 10
+        stock: 10
     },
     {
         id: '0018',
@@ -224,7 +225,7 @@ const items = [
         category: '',
         size: ['Unique'],
         gender: 'pet',
-        qt: 10
+        stock: 10
     },
     {
         id: '0019',
@@ -235,7 +236,8 @@ const items = [
         description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus ad perspiciatis architecto facilis maiores quod suscipit non natus eos, eius eaque aut exercitationem dolor odio ex consequuntur dignissimos sunt saepe.',
         category: '',
         size: ['Small', 'Medium', 'Large'],
-        gender: 'pet'
+        gender: 'pet',
+        stock: 10
     },
     {
         id: '0020',
@@ -247,7 +249,7 @@ const items = [
         category: '',
         size: ['Small', 'Medium', 'Large'],
         gender: 'pet',
-        qt: 10
+        stock: 10
     },
     {
         id: '0021',
@@ -259,7 +261,7 @@ const items = [
         category: '',
         size: ['Small', 'Medium', 'Large'],
         gender: 'pet',
-        qt: 10
+        stock: 10
     },
     {
         id: '0022',
@@ -271,7 +273,7 @@ const items = [
         category: '',
         size: ['Small', 'Medium'],
         gender: 'pet',
-        qt: 10
+        stock: 10
     },
     {
         id: '0023',
@@ -283,7 +285,7 @@ const items = [
         category: '',
         size: ['Medium', 'Large'],
         gender: 'pet',
-        qt: 10
+        stock: 10
     },
     {
         id: '0024',
@@ -295,7 +297,7 @@ const items = [
         category: 'clothes',
         size: ['Small', 'Medium', 'Large'],
         gender: 'male',
-        qt: 10
+        stock: 10
     },
     {
         id: '0025',
@@ -307,7 +309,7 @@ const items = [
         category: 'clothes',
         size: ['Small', 'Large'],
         gender: 'male',
-        qt: 10
+        stock: 10
     },
 ]
 
