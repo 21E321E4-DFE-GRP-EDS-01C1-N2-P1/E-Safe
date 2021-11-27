@@ -9,6 +9,8 @@ export default createStore({
 	state: {
 		userData: userData,
 		cartProducts: cartProducts,
+		loginEmail: null,
+		loginPass: null,
 	},
 	mutations: {
 		registerFirebase(state){
@@ -28,15 +30,37 @@ export default createStore({
 				})
 		},
 		createUserFirebase(state){
-				db.collection('users').doc(state.userData.id).set(state.userData)
-			.then(
-				alert("FirebaseStore Success: Data Store!")
-			)
-			.catch(err => {
-				console.log("FirebaseStore Error: ", err.message)
-				alert("FirebaseStore: ", err.message)
-			})
-		},    
+			db.collection('users').doc(state.userData.id).set(state.userData)
+				.then(
+					alert("FirebaseStore Success: Data Store!")
+				)
+				.catch(err => {
+					console.log("FirebaseStore Error: ", err.message)
+					alert("FirebaseStore: ", err.message)
+				})
+		}, 
+		userLogin(state){
+			firebase
+				.auth()
+				.signInWithEmailAndPassword(state.loginEmail, state.loginPass)
+				.then(firebase_data => {
+					console.log(firebase_data),
+					state.userData.id = firebase_data.user.uid,
+					this.commit('getUserDataFirebase')
+				}).catch(err => alert(err.message))
+		},
+		getUserDataFirebase(state){
+			db.collection('users').doc(state.userData.id).get()
+				.then(snapshot => {
+					state.userData = snapshot.data()
+					console.log("snapshot.data() ---> ", snapshot.data())
+					alert("FirebaseStore Success: Data Retrieved!")
+				}).catch(err => {
+					console.log("FirebaseStore Error: ", err.message)
+					alert("FirebaseStore: ", err.message)
+				})
+		},
+		   
 		addCart(state, newItem) {
 			const cardItem = state.cartProducts.find(item => item.id === newItem.id)
 			// if (state.cartProducts.length > 0) {		
@@ -60,7 +84,6 @@ export default createStore({
 			// 	newItem.qty = 1
 			// 	state.cartProducts.push(newItem)
 			// }
-
 
 			if(cardItem) {
 				console.log('cardItem  ----->', cardItem.choseSize)
