@@ -60,7 +60,6 @@ export default createStore({
 					alert("FirebaseStore: ", err.message)
 				})
 		},
-		   
 		addCart(state, newItem) {
 			const cardItem = state.cartProducts.find(item => item.id === newItem.id)
 			// if (state.cartProducts.length > 0) {		
@@ -97,7 +96,7 @@ export default createStore({
 		},
 		removeItemCart(state, payload) {
 			state.cartProducts.splice(payload, 1)
-            window.localStorage.setItem('myCart', JSON.stringify(state.cartProducts))
+			window.localStorage.setItem('myCart', JSON.stringify(state.cartProducts))
 		},
 		
 		
