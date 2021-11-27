@@ -76,9 +76,7 @@ export default createStore({
 			state.cartProducts.splice(payload, 1)
             window.localStorage.setItem('myCart', JSON.stringify(state.cartProducts))
 		},
-		teste() {
-			
-		}
+		
 		
 	},
 	actions: {
