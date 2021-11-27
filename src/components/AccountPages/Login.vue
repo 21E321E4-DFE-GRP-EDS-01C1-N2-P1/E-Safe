@@ -15,21 +15,21 @@
 						<div class="form-group row mb-3">
 							<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg m-1">Email</label>
 							<div class="col-sm-10">
-								<input id="email" v-model="email" type="email" class="form-control form-control-lg" placeholder="Email-Address" required>
+								<input id="email" v-model="$store.state.loginEmail" type="email" class="form-control form-control-lg" placeholder="Email-Address" required>
 								<label class="d-none" for="email">email</label>
 							</div>
 						</div>
 						<div class="form-group row mb-3">
 							<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg m-1">Password</label>
 							<div class="col-sm-10">
-								<input id="pass" v-model="password" type="password" class="form-control form-control-lg" placeholder="*********" required>
+								<input id="pass" v-model="$store.state.loginPass" type="password" class="form-control form-control-lg" placeholder="*********" required>
 								<label class="d-none" for="pass">pass</label>
 							</div>
 						</div>
 						
 						<div class="form-row mb-3">
 							<div class="col-lg-7">
-								<button @click="Login" type="button" class="btn1 mt-3 mb-5">Login</button>
+								<button @click="$store.commit('userLogin')" type="button" class="btn1 mt-3 mb-5">Login</button>
 							</div>
 						</div>
 						<a href="Forgot">Forgot Password</a>
@@ -41,27 +41,9 @@
 	</section>
 </template>
 <script>
-import { ref } from 'vue'
-import firebase from 'firebase'
 
 export default {
 	setup() {
-		const email = ref("")
-		const password = ref("")
-
-		const Login = () => {
-			firebase
-				.auth()
-				.signInWithEmailAndPassword(email.value, password.value)
-				.then(data => console.log(data))
-				.catch(err => alert(err.message))
-		}
-
-		return{
-			Login,
-			email,
-			password
-		}
 	}
 }
 </script>

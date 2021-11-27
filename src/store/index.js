@@ -9,10 +9,12 @@ export default createStore({
 	state: {
 		userData: userData,
 		cartProducts: cartProducts,
+		loginEmail: null,
+		loginPass: null,
 		cartLength: 0
 	},
 	mutations: {
-	registerFirebase(state){
+		registerFirebase(state){
 			firebase
 				.auth()
 				.createUserWithEmailAndPassword(state.userData.email, state.userData.password)
@@ -37,7 +39,29 @@ export default createStore({
 				console.log("FirebaseStore Error: ", err.message)
 				alert("FirebaseStore: ", err.message)
 			})
-		},    
+		},
+		userLogin(state){
+			firebase
+				.auth()
+				.signInWithEmailAndPassword(state.loginEmail, state.loginPass)
+				.then(firebase_data => {
+					console.log(firebase_data),
+					state.userData.id = firebase_data.user.uid,
+					this.commit('getUserDataFirebase')
+				})
+				.catch(err => alert(err.message))
+		},
+		getUserDataFirebase(state){ //TODO: Error
+			db.collection('users').doc(state.userData.id).get()
+				.then(snapshot => {
+					state.userData = snapshot.data()
+					console.log("snapshot.data() ---> ", snapshot.data())
+					alert("FirebaseStore Success: Data Retrieved!")
+				}).catch(err => {
+					console.log("FirebaseStore Error: ", err.message)
+					alert("FirebaseStore: ", err.message)
+				})
+		},     
 		sumQt(state, payload) {
 			state.cartLength = payload
 		}
