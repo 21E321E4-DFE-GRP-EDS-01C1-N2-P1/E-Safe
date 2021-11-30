@@ -119,7 +119,7 @@ export default {
 				if(!user){
 					router.replace('/Login')
 				} else if (route.path == '/Login' || route.path == '/Register'){
-					router.replace('/Account')
+					router.push({name: 'Account'})
 				}
 			})
 

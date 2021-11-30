@@ -29,61 +29,15 @@ export default createStore({
 					alert("FirebaseAuth Error: ",err.message)
 				})
 		},
-		createUserFirebase(state){
-			db.collection('users').doc(state.userData.id).set(state.userData)
-				.then(
-					alert("FirebaseStore Success: Data Store!")
-				)
-				.catch(err => {
-					console.log("FirebaseStore Error: ", err.message)
-					alert("FirebaseStore: ", err.message)
-				})
-		}, 
-		userLogin(state){
-			firebase
-				.auth()
-				.signInWithEmailAndPassword(state.loginEmail, state.loginPass)
-				.then(firebase_data => {
-					console.log(firebase_data),
-					state.userData.id = firebase_data.user.uid,
-					this.commit('getUserDataFirebase')
-				}).catch(err => alert(err.message))
+		updateUserData(state, firebaseData){
+			state.userData = firebaseData
+			window.localStorage.setItem('User_Data', JSON.stringify(state.userData))
 		},
-		getUserDataFirebase(state){
-			db.collection('users').doc(state.userData.id).get()
-				.then(snapshot => {
-					state.userData = snapshot.data()
-					console.log("snapshot.data() ---> ", snapshot.data())
-					alert("FirebaseStore Success: Data Retrieved!")
-				}).catch(err => {
-					console.log("FirebaseStore Error: ", err.message)
-					alert("FirebaseStore: ", err.message)
-				})
+		updateUserID(state, firebaseID){
+			state.userData.id = firebaseID
 		},
 		addCart(state, newItem) {
 			const cardItem = state.cartProducts.find(item => item.id === newItem.id)
-			// if (state.cartProducts.length > 0) {		
-			// 	for(let item in state.cartProducts) {
-			// 		console.log('Velho', state.cartProducts[item].choseSize);
-			// 		console.log('novo', newItem.choseSize);
-			// 		if (state.cartProducts[item].id === newItem.id) {
-			// 			if (state.cartProducts[item].choseSize === newItem.choseSize) {
-			// 				state.cartProducts[item].qty += 1
-			// 			} else {
-			// 				newItem.qty = 1
-			// 				state.cartProducts.push(newItem)		
-			// 			}
-			// 		} else {
-			// 			newItem.qty = 1
-			// 			state.cartProducts.push(newItem)
-			// 		}
-			// 	}
-				
-			// } else {
-			// 	newItem.qty = 1
-			// 	state.cartProducts.push(newItem)
-			// }
-
 			if(cardItem) {
 				console.log('cardItem  ----->', cardItem.choseSize)
 				console.log('newItem  ----->', newItem.choseSize)
@@ -97,12 +51,42 @@ export default createStore({
 		removeItemCart(state, payload) {
 			state.cartProducts.splice(payload, 1)
 			window.localStorage.setItem('myCart', JSON.stringify(state.cartProducts))
+			window.localStorage.setItem('myTasks', JSON.stringify(state.mockTasks))
 		},
-		
 		
 	},
 	actions: {
-
+		userLogin(context){
+			firebase
+				.auth()
+				.signInWithEmailAndPassword(context.state.loginEmail, context.state.loginPass)
+				.then(firebase_data => {
+					console.log(firebase_data),
+					this.commit('updateUserID',firebase_data.user.uid)
+					this.dispatch('getUserDataFirebase')
+				}).catch(err => alert(err.message))
+		},
+		getUserDataFirebase(context){
+			db.collection('users').doc(context.state.userData.id).get()
+				.then(snapshot => {
+					this.commit('updateUserData', snapshot.data())
+					console.log("snapshot.data() ---> ", snapshot.data())
+					// alert("FirebaseStore Success: Data Retrieved!")
+				}).catch(err => {
+					console.log("FirebaseStore Error: ", err.message)
+					// alert("FirebaseStore: ", err.message)
+				})
+		},
+		createUserFirebase(context){
+			db.collection('users').doc(context.state.userData.id).set(context.state.userData)
+				.then(
+					// alert("FirebaseStore Success: Data Store!")
+				)
+				.catch(err => {
+					console.log("FirebaseStore Error: ", err.message)
+					// alert("FirebaseStore: ", err.message)
+				})
+		},
 	},
 	modules: {
 	}

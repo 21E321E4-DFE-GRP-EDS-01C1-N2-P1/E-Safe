@@ -29,7 +29,7 @@
 						
 						<div class="form-row mb-3">
 							<div class="col-lg-7">
-								<button @click="$store.commit('userLogin')" type="button" class="btn1 mt-3 mb-5">Login</button>
+								<button @click="$store.dispatch('userLogin')" type="button" class="btn1 mt-3 mb-5">Login</button>
 							</div>
 						</div>
 						<a href="Forgot">Forgot Password</a>

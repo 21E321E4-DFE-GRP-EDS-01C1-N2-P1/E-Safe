@@ -1,4 +1,5 @@
-const userData = {
+const localUserData = JSON.parse(window.localStorage.getItem('User_Data'))
+const userData = localUserData ? localUserData : {
     id: null,
     firstName: null,
     lastName: null,
