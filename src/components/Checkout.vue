@@ -10,43 +10,43 @@
                     <legend class="fw-bold my-5">Billing & Shipping</legend>
                     <div class="col-md-10 d-flex  mx-auto">
                         <div class="col-md-6 form-floating mb-3 pe-2">
-                            <input type="text" class="form-control" id="floatingInput" value="First Name">
+                            <input type="text" class="form-control" id="floatingInput" :value="$store.state.userData.firstName">
                             <label for="floatingInput">First name</label>
                         </div>
                         <div class="col-md-6 form-floating">
-                            <input type="text" class="form-control" id="floatingPassword" value="Last Name">
+                            <input type="text" class="form-control" id="floatingPassword" :value="$store.state.userData.lastName">
                             <label for="floatingPassword">Last name</label>
                         </div>
                     </div>
                     <div class="col-md-10 form-floating d-flex justify-content-center mx-auto mb-3 ">
-                        <input type="email" class="form-control" id="floatingPassword" value="name@example.com">
+                        <input type="email" class="form-control" id="floatingPassword" :value="$store.state.userData.email">
                         <label for="floatingPassword">Email Address</label>
                     </div>
                     <div class="col-md-10 form-floating d-flex justify-content-center mx-auto mb-3">
-                        <input type="text" class="form-control" id="floatingPassword" value="1234 Main Stm">
+                        <input type="text" class="form-control" id="floatingPassword" :value="$store.state.userData.addrs">
                         <label for="floatingPassword">Address</label>
                     </div>
                     <div class="col-md-10 form-floating d-flex justify-content-center mx-auto mb-3">
-                        <input type="text" class="form-control" id="floatingPassword" value="Apartment, studio, or floor">
+                        <input type="text" class="form-control" id="floatingPassword" :value="$store.state.userData.addrs2">
                         <label for="floatingPassword">Address 2</label>
                     </div>
                     <div class="col-md-10 d-flex  mx-auto">
                         <div class="col-md-6 form-floating mb-3 pe-2">
-                            <input type="text" class="form-control" id="floatingInput" value="City">
+                            <input type="text" class="form-control" id="floatingInput" :value="$store.state.userData.city">
                             <label for="floatingInput">City</label>
                         </div>
                         <div class="col-md-6 form-floating">
-                            <input type="text" class="form-control" id="floatingPassword" value="State">
+                            <input type="text" class="form-control" id="floatingPassword" value="Bahamas">
                             <label for="floatingPassword">State</label>
                         </div>
                     </div>
                     <div class="col-md-10 d-flex mx-auto">
                         <div class="col-md-6 form-floating mb-3 pe-2">
-                            <input type="text" class="form-control" id="floatingInput" value="20511-390">
+                            <input type="text" class="form-control" id="floatingInput" :value="$store.state.userData.zip">
                             <label for="floatingInput">Zip</label>
                         </div>
                         <div class="col-md-6 form-floating">
-                            <input type="text" class="form-control" id="floatingPassword" value="Neighborhood">
+                            <input type="text" class="form-control" id="floatingPassword" value="Black Pearl">
                             <label for="floatingPassword">Neighborhood</label>
                         </div>
                     </div>
